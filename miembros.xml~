@@ -1,6 +1,7 @@
 <grupo>
 	<nombre>practica_compiladoresmd</nombre>
-	<url>https://subversion.assembla.com/svn/practica_compiladoresmd/</url>
+	<url1>https://subversion.assembla.com/svn/practica_compiladoresmd/</url1>
+	<url2>https://github.com/jvidalba1/practica_compiladores</url2>
 	<miembro>
 		<nombre>Jose Mateo Vidal Barrera</nombre>
 		<codigo>200810012010</codigo>
