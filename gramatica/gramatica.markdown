@@ -56,17 +56,22 @@
 								| Relacion >= Adicion | Relacion == Adicion
 								| Relacion != Adicion
 		Adicion				--> Termino | Adicion + Termino | Adicion | Termino
-		Termino				--> Negacion | Termino * Negacion | Temino / Negacion 						  			Negacion			--> Factor | !Factor
+		Termino				--> Negacion | Termino * Negacion | Temino / Negacion
+		Negacion			--> Factor | !Factor
 		Factor				--> Identificador | Propiedad | Literal | (Expresion)
 =============================================================================================================
 		ListLengFns			--> LenFn ListLengFns | LenFn
-		LenFn				--> '%=' 'def' LengTipo AliasA '(' LengTipo AliasA (','(LengTipo AliasA))* 									')' '{' Instrucciones '}' '=%'
+		LenFn				--> '%=' 'def' LengTipo AliasA '(' LengTipo AliasA (','(LengTipo AliasA))*
+								')' '{' Instrucciones '}' '=%'
 		LengTipo			--> 'int' | 'bool' | 'date' | 'hour' | 'file' | 'classFile' | 'string'
 		Instrucciones		--> ListVariables RestoInstrucciones | ε
 		ListVariables		--> LenVar ListVariables | LenVar
 		LengVar				--> LengTipo AliasA ';'
-		RestoInstrucciones 	--> ListCondicionales RestoInstrucciones | ListCiclos RestoInstrucciones | 									ListAsignaciones RestoInstrucciones | ε
-		ListCondicionales	--> 'if''('Expresion')' '{'RestoInstrucciones'}' | 									'if''('Expresion')' '{'RestoInstrucciones'}' 'else' 								'{'RestoInstrucciones'}'
+		RestoInstrucciones 	--> ListCondicionales RestoInstrucciones | ListCiclos RestoInstrucciones
+								| ListAsignaciones RestoInstrucciones | ε
+		ListCondicionales	--> 'if''('Expresion')' '{'RestoInstrucciones'}'
+								| 'if''('Expresion')' '{'RestoInstrucciones'}' 'else'
+								'{'RestoInstrucciones'}'
 		ListCiclos			--> 'while' '(' Expresion ')' '{' RestoInstrucciones '}'
 		ListAsignaciones	--> LenAsignacion ListAsignaciones | LenAsignacion
 		LenAsignacion 		--> AliasA '~' LengExpresiones ';'
