@@ -8,36 +8,33 @@
 
 		P = { 
 =============================================================================================================
-		LenguajeTotal	 	--> ListLengArchivo ListLengClases ListLengComandos ListLengFns ListLengApp
+		LenguajeTotal	 	--> (ListLengArchivo | ListLengClases | ListLengComandos | ListLengFns | ListLengApp)+
 =============================================================================================================
 		ListLengArchivo 	--> LenA ListLengArchivo | ε
-		LenA 				--> '$' Nombre Extension OpcionesA '$$'
-		Nombre 				--> 'nombre' '~' AliasA
-		Extension 			--> 'ext' '~' AliasE
+		LenA 				--> '$' AliasA '.' AliasE OpcionesA '$$'
 		AliasA				--> ([a-z]|[A-Z])([a-z]|[A-Z]|[0-9])*
 		AliasE				--> ([a-z]|[A-Z]|[0-9])*
 		OpcionesA			--> '{' UbicacionA FechaCreacion FechaEdit HoraCreacion HoraEdit '}'
 		UbicacionA			--> Relativa | Absoluta | ε
-		Absoluta			--> 'dir' '~' ('/'AliasA)+
-		Relativa			--> 'dir' '~' '.'(/AliasA)+ | 'dir' '~' '..'(/AliasA)+
-		FechaCreacion		--> 'fechaC' '~' ([0-9]{2} '/' [0-9]{2} '/' [0-9]{2} [0-9]{2}) | ε
-		FechaEdit			--> 'fechaM' '~' ([0-9]{2} '/' [0-9]{2} '/' [0-9]{2} [0-9]{2}) | ε
-		HoraCreacion		--> 'HoraC' '~' DD ':' DD ':' DD | ε
-		HoraEdit			--> 'HoraM' '~' DD ':' DD ':' DD | ε	
+		Absoluta			--> ('/'AliasA)+
+		Relativa			--> '.'(/AliasA)+ | '..'(/AliasA)+
+		FechaCreacion		--> ([0-9]{2} '/' [0-9]{2} '/' [0-9]{4}) | ε
+		FechaEdit			--> ([0-9]{2} '/' [0-9]{2} '/' [0-9]{4}) | ε
+		HoraCreacion		--> [0-9]{2}':'[0-9]{2}':'[0-9]{2} | ε
+		HoraEdit			--> [0-9]{2}':'[0-9]{2}':'[0-9]{2} | ε	
 =============================================================================================================
 		ListLengClases		--> LenClases ListLengClases | ε
-		LenClases			--> 'class' Identificador Descripcion Propiedades '/class'
-		Identificador		--> 'Identidicador' '~' ([a-z]|[A-Z]|[ ])
-		DescripcionClases	--> 'Descri' '~' ([a-z]|[A-Z]|[ ]|[0-9])+
-		Propiedades			--> Tripleta(','Tripleta)*
+		LenClases			--> 'class' AliasA Descripcion Propiedad '/class'
+		DescripcionClases	--> ([a-z]|[A-Z]|[0-9])+
+		Propiedad			--> Tripleta(','Tripleta)*
 		Tripleta			--> LengTipo ':' AliasA '~' Expresion
 =============================================================================================================
 		ListLengComandos	--> LenC ListLengComandos | LenC
-		LenC				--> '>' 'nombre' '~' AliasA 'dir' '~' UbicacionC '<'
+		LenC				--> '+' 'nombre' '~' AliasA 'dir' '~' UbicacionC '+'
 		UbicacionC			--> (/AliasA)+/
 =============================================================================================================			
 		ListLengApp			--> LenApp ListLengApp | LenApp
-		LenApp				--> '#' Id Comando ArgumentoIN ArgumentoOUT OpcionesApp Descripcion '##'
+		LenApp				--> '#' Id Comando 'in' ArgumentoIN '/in' 'out' ArgumentoOUT '/out' OpcionesApp Descripcion '##'
 		Id					--> ([0-9])+
 		Comando				--> AliasA
 		ArgumentoIN			--> Archivo | Clase | Archivo ArgumentoIN | Clase ArgumentoIN
@@ -45,7 +42,7 @@
 		Clase				--> AliasA
 		ArgumentoOUT		--> Archivo | Clase 
 		OpcionesApp			--> '-' AliasA OpcionesApp | '-' AliasA
-		DescripcionApp		--> '"' AliasA  '"' | ε
+		DescripcionApp		--> AliasA| ε
 =============================================================================================================
 		Expresion			--> Conjuncion | Expresion || Conjuncion
 		Conjuncion			--> Relacion | Conjuncion && Relacion
@@ -56,12 +53,18 @@
 		Adicion				--> Termino | Adicion + Termino | Adicion | Termino
 		Termino				--> Negacion | Termino * Negacion | Temino / Negacion
 		Negacion			--> Factor | !Factor
-		Factor				--> Identificador | Propiedad | Literal | (Expresion)
+		Factor				--> Identificador | Propiedad | Literal | '(' Expresion ')'
 =============================================================================================================
 		ListLengFns			--> LenFn ListLengFns | LenFn
-		LenFn				--> '%=' 'def' LengTipo AliasA '(' LengTipo AliasA (','(LengTipo AliasA))*
+		LenFn				--> '%=' LengTipo AliasA '(' LengTipo AliasA (','(LengTipo AliasA))*
 								')' '{' Instrucciones '}' '=%'
-		LengTipo			--> 'int' | 'bool' | 'date' | 'hour' | 'file' | 'classFile' | 'string'
+		Literal				--> Int | Bool | Date | Hour | File | LenClases | String
+		Int					--> ([0-9]*) | Expresion
+		Bool				--> 'true' | 'false' | Expresion
+		Date				--> ([0-9]{2} '/' [0-9]{2} '/' [0-9]{4}) | Expresion
+		Hour				--> [0-9]{2}':'[0-9]{2}':'[0-9]{2} | Expresion
+		File				--> Relativa | Absoluta
+		String				--> ([a-z]|[A-Z]|[0-9])*
 		Instrucciones		--> ListVariables RestoInstrucciones | ε
 		ListVariables		--> LenVar ListVariables | LenVar
 		LengVar				--> LengTipo AliasA ';'

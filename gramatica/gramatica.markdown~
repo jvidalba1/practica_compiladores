@@ -1,13 +1,12 @@
 #GramaticaMD = {
 
-	V =	{ListLengArchivo, ListLengClases, ListLengComandos, ListLengFn, ListLengApp, ListLengArchivo,
-	 	ListLengArchivo, LenA, Nombre, Extencion }
+		V =	{LenguajeTotal, ListLengArchivo, ListLengClases, ListLengComandos, ListLengFn, ListLengApp, 			ListLengArchivo,ListLengArchivo, LenA, Nombre, Extencion }
 
-	∑ = {}
+		∑ = {}
 
-	S = {LenguajeTotal}
+		S = {LenguajeTotal}
 
-	P = { 
+		P = { 
 =============================================================================================================
 		LenguajeTotal	 	--> ListLengArchivo ListLengClases ListLengComandos ListLengFns ListLengApp
 =============================================================================================================
@@ -17,7 +16,7 @@
 		Extension 			--> 'ext' '~' AliasE
 		AliasA				--> ([a-z]|[A-Z])([a-z]|[A-Z]|[0-9])*
 		AliasE				--> ([a-z]|[A-Z]|[0-9])*
-		Opciones			--> '{' UbicacionA FechaCreacion FechaEdit HoraCreacion HoraEdit '}'
+		OpcionesA			--> '{' UbicacionA FechaCreacion FechaEdit HoraCreacion HoraEdit '}'
 		UbicacionA			--> Relativa | Absoluta | ε
 		Absoluta			--> 'dir' '~' ('/'AliasA)+
 		Relativa			--> 'dir' '~' '.'(/AliasA)+ | 'dir' '~' '..'(/AliasA)+
@@ -27,19 +26,18 @@
 		HoraEdit			--> 'HoraM' '~' DD ':' DD ':' DD | ε	
 =============================================================================================================
 		ListLengClases		--> LenClases ListLengClases | ε
-		LenClases			--> 'class' Identificador Descripcion Propiedades Caracteristicas '/class'
+		LenClases			--> 'class' Identificador Descripcion Propiedades '/class'
 		Identificador		--> 'Identidicador' '~' ([a-z]|[A-Z]|[ ])
 		DescripcionClases	--> 'Descri' '~' ([a-z]|[A-Z]|[ ]|[0-9])+
 		Propiedades			--> Tripleta(','Tripleta)*
-		Tripleta			--> LengTipo AliasA "~" Expresion
-		CaracteristicasC	--> 
+		Tripleta			--> LengTipo ':' AliasA '~' Expresion
 =============================================================================================================
 		ListLengComandos	--> LenC ListLengComandos | LenC
 		LenC				--> '>' 'nombre' '~' AliasA 'dir' '~' UbicacionC '<'
 		UbicacionC			--> (/AliasA)+/
 =============================================================================================================			
 		ListLengApp			--> LenApp ListLengApp | LenApp
-		LenApp				--> '#' Id Comando ArgumentoIN ArgumentoOUT Opciones Descripcion '##'
+		LenApp				--> '#' Id Comando ArgumentoIN ArgumentoOUT OpcionesApp Descripcion '##'
 		Id					--> ([0-9])+
 		Comando				--> AliasA
 		ArgumentoIN			--> Archivo | Clase | Archivo ArgumentoIN | Clase ArgumentoIN
