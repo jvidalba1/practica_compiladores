@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ejemplo" default="Compile" basedir=".">
+  
+	<!-- Cuarto -->
+  <target name="run" depends="Compile">
+      <java classname="mdMain"> 
+            <classpath>
+              <pathelement path="${java.class.path}"/>
+              <path location="bin"/>
+            </classpath>
+            <arg value="examples/test.txt"/>
+          </java>
+        </target>  
+
+	<!-- Segundo -->
+  <target name="antlr-gen">
+    <antlr:ant-antlr3 xmlns:antlr="antlib:org/apache/tools/ant/antlr"
+                      verbose="true"
+                      outputdirectory="src"
+                      target="src/gramaticadesc/md.g"/>
+  </target>
+
+	<!-- Tercero -->
+  <target name="Compile" depends="init,antlr-gen">
+    <javac srcdir="src/gramaticadesc" destdir="bin"/>     
+  </target>
+  
+	<!-- Primero -->
+  <target name="init">
+    <mkdir dir="bin"/>        
+  </target>
+
+	<!-- Borrar lo hecho -->
+  <target name="clean">        
+      <delete dir="bin"/>
+      <delete file="src/gramaticadesc/mdParser.java"/>
+      <delete file="src/gramaticadesc/mdLexer.java"/>
+      <delete file="src/gramaticadesc/md.tokens"/>
+  </target> 
+ 
+</project>
