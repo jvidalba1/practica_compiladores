@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g 2012-05-19 13:21:21
+// $ANTLR 3.4 /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g 2012-05-29 10:47:43
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -8,13 +8,10 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class mdParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ALIASA", "Bool", "Fecha", "Hora", "Int", "LengTipo", "String", "UbicacionC", "'!'", "'!='", "'##'", "'#'", "'$$'", "'$'", "'%='", "'&&'", "'('", "')'", "'*'", "'+'", "'++'", "','", "'-'", "'.'", "'..'", "'/'", "'//'", "'/class'", "'/in'", "'/out'", "':'", "';'", "'<'", "'<='", "'=%'", "'=='", "'>'", "'>='", "'class'", "'dir'", "'else'", "'if'", "'in'", "'nombre'", "'out'", "'while'", "'{'", "'||'", "'}'", "'~'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ALIASA", "Bool", "Comentarios", "Fecha", "Hora", "Int", "LengTipo", "NEWLINE", "String", "UbicacionC", "WS", "'!'", "'!='", "'\"'", "'##'", "'#'", "'$$'", "'$'", "'%='", "'&&'", "'('", "')'", "'*'", "'*/'", "'+'", "'++'", "','", "'-'", "'.'", "'..'", "'/'", "'/*'", "'//'", "'/in'", "'/out'", "':'", "';'", "'<'", "'<='", "'=%'", "'=='", "'>'", "'>='", "'dir'", "'else'", "'if'", "'in'", "'nombre'", "'out'", "'s'", "'ss'", "'while'", "'{'", "'||'", "'}'", "'~'"
     };
 
     public static final int EOF=-1;
-    public static final int T__12=12;
-    public static final int T__13=13;
-    public static final int T__14=14;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
@@ -54,14 +51,23 @@ public class mdParser extends Parser {
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__53=53;
+    public static final int T__54=54;
+    public static final int T__55=55;
+    public static final int T__56=56;
+    public static final int T__57=57;
+    public static final int T__58=58;
+    public static final int T__59=59;
     public static final int ALIASA=4;
     public static final int Bool=5;
-    public static final int Fecha=6;
-    public static final int Hora=7;
-    public static final int Int=8;
-    public static final int LengTipo=9;
-    public static final int String=10;
-    public static final int UbicacionC=11;
+    public static final int Comentarios=6;
+    public static final int Fecha=7;
+    public static final int Hora=8;
+    public static final int Int=9;
+    public static final int LengTipo=10;
+    public static final int NEWLINE=11;
+    public static final int String=12;
+    public static final int UbicacionC=13;
+    public static final int WS=14;
 
     // delegates
     public Parser[] getDelegates() {
@@ -90,13 +96,13 @@ public class mdParser extends Parser {
             // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:3:11: ( md EOF )
             // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:3:19: md EOF
             {
-            pushFollow(FOLLOW_md_in_prog21);
+            pushFollow(FOLLOW_md_in_prog35);
             md();
 
             state._fsp--;
 
 
-            match(input,EOF,FOLLOW_EOF_in_prog23); 
+            match(input,EOF,FOLLOW_EOF_in_prog37); 
 
             }
 
@@ -116,41 +122,46 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "md"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:1: md : ( listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+ ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:1: md : ( comments | listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+ ;
     public final void md() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:6: ( ( listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+ )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:8: ( listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:6: ( ( comments | listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+ )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:8: ( comments | listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+
             {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:8: ( listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:8: ( comments | listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+
             int cnt1=0;
             loop1:
             do {
-                int alt1=6;
+                int alt1=7;
                 switch ( input.LA(1) ) {
-                case 17:
+                case 35:
                     {
                     alt1=1;
                     }
                     break;
-                case 42:
+                case 21:
                     {
                     alt1=2;
                     }
                     break;
-                case 23:
+                case 53:
                     {
                     alt1=3;
                     }
                     break;
-                case 18:
+                case 28:
                     {
                     alt1=4;
                     }
                     break;
-                case 15:
+                case 22:
                     {
                     alt1=5;
+                    }
+                    break;
+                case 19:
+                    {
+                    alt1=6;
                     }
                     break;
 
@@ -158,10 +169,10 @@ public class mdParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:9: listLengArchivo
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:10: comments
             	    {
-            	    pushFollow(FOLLOW_listLengArchivo_in_md33);
-            	    listLengArchivo();
+            	    pushFollow(FOLLOW_comments_in_md48);
+            	    comments();
 
             	    state._fsp--;
 
@@ -169,10 +180,10 @@ public class mdParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:27: listLengClases
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:21: listLengArchivo
             	    {
-            	    pushFollow(FOLLOW_listLengClases_in_md37);
-            	    listLengClases();
+            	    pushFollow(FOLLOW_listLengArchivo_in_md52);
+            	    listLengArchivo();
 
             	    state._fsp--;
 
@@ -180,10 +191,10 @@ public class mdParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:44: listLengComandos
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:39: listLengClases
             	    {
-            	    pushFollow(FOLLOW_listLengComandos_in_md41);
-            	    listLengComandos();
+            	    pushFollow(FOLLOW_listLengClases_in_md56);
+            	    listLengClases();
 
             	    state._fsp--;
 
@@ -191,10 +202,10 @@ public class mdParser extends Parser {
             	    }
             	    break;
             	case 4 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:63: listLengFns
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:56: listLengComandos
             	    {
-            	    pushFollow(FOLLOW_listLengFns_in_md45);
-            	    listLengFns();
+            	    pushFollow(FOLLOW_listLengComandos_in_md60);
+            	    listLengComandos();
 
             	    state._fsp--;
 
@@ -202,9 +213,20 @@ public class mdParser extends Parser {
             	    }
             	    break;
             	case 5 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:77: listLengApp
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:75: listLengFns
             	    {
-            	    pushFollow(FOLLOW_listLengApp_in_md49);
+            	    pushFollow(FOLLOW_listLengFns_in_md64);
+            	    listLengFns();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+            	case 6 :
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:89: listLengApp
+            	    {
+            	    pushFollow(FOLLOW_listLengApp_in_md68);
             	    listLengApp();
 
             	    state._fsp--;
@@ -240,28 +262,58 @@ public class mdParser extends Parser {
 
 
 
+    // $ANTLR start "comments"
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:11:1: comments : '/*' Comentarios '*/' ;
+    public final void comments() throws RecognitionException {
+        try {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:11:11: ( '/*' Comentarios '*/' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:11:13: '/*' Comentarios '*/'
+            {
+            match(input,35,FOLLOW_35_in_comments115); 
+
+            match(input,Comentarios,FOLLOW_Comentarios_in_comments117); 
+
+            match(input,27,FOLLOW_27_in_comments119); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "comments"
+
+
+
     // $ANTLR start "listLengArchivo"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:13:1: listLengArchivo : '$' ALIASA '.' ALIASA opcionesA '$$' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:1: listLengArchivo : '$' ALIASA '.' ALIASA opcionesA '$$' ;
     public final void listLengArchivo() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:13:18: ( '$' ALIASA '.' ALIASA opcionesA '$$' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:13:20: '$' ALIASA '.' ALIASA opcionesA '$$'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:18: ( '$' ALIASA '.' ALIASA opcionesA '$$' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:20: '$' ALIASA '.' ALIASA opcionesA '$$'
             {
-            match(input,17,FOLLOW_17_in_listLengArchivo97); 
+            match(input,21,FOLLOW_21_in_listLengArchivo130); 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_listLengArchivo99); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_listLengArchivo132); 
 
-            match(input,27,FOLLOW_27_in_listLengArchivo101); 
+            match(input,32,FOLLOW_32_in_listLengArchivo134); 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_listLengArchivo103); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_listLengArchivo136); 
 
-            pushFollow(FOLLOW_opcionesA_in_listLengArchivo105);
+            pushFollow(FOLLOW_opcionesA_in_listLengArchivo138);
             opcionesA();
 
             state._fsp--;
 
 
-            match(input,16,FOLLOW_16_in_listLengArchivo107); 
+            match(input,20,FOLLOW_20_in_listLengArchivo140); 
 
             }
 
@@ -281,22 +333,22 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "opcionesA"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:1: opcionesA : '{' ( ubicacionA |) ( Fecha |) ( Hora |) '}' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:1: opcionesA : '{' ( ubicacionA |) ( Fecha |) ( Hora |) '}' ;
     public final void opcionesA() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:12: ( '{' ( ubicacionA |) ( Fecha |) ( Hora |) '}' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:14: '{' ( ubicacionA |) ( Fecha |) ( Hora |) '}'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:12: ( '{' ( ubicacionA |) ( Fecha |) ( Hora |) '}' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:14: '{' ( ubicacionA |) ( Fecha |) ( Hora |) '}'
             {
-            match(input,50,FOLLOW_50_in_opcionesA115); 
+            match(input,56,FOLLOW_56_in_opcionesA148); 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:18: ( ubicacionA |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:18: ( ubicacionA |)
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( ((LA2_0 >= 27 && LA2_0 <= 29)) ) {
+            if ( ((LA2_0 >= 32 && LA2_0 <= 34)) ) {
                 alt2=1;
             }
-            else if ( ((LA2_0 >= Fecha && LA2_0 <= Hora)||LA2_0==52) ) {
+            else if ( ((LA2_0 >= Fecha && LA2_0 <= Hora)||LA2_0==58) ) {
                 alt2=2;
             }
             else {
@@ -308,9 +360,9 @@ public class mdParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:19: ubicacionA
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:19: ubicacionA
                     {
-                    pushFollow(FOLLOW_ubicacionA_in_opcionesA118);
+                    pushFollow(FOLLOW_ubicacionA_in_opcionesA151);
                     ubicacionA();
 
                     state._fsp--;
@@ -319,7 +371,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:32: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:32: 
                     {
                     }
                     break;
@@ -327,14 +379,14 @@ public class mdParser extends Parser {
             }
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:34: ( Fecha |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:34: ( Fecha |)
             int alt3=2;
             int LA3_0 = input.LA(1);
 
             if ( (LA3_0==Fecha) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==Hora||LA3_0==52) ) {
+            else if ( (LA3_0==Hora||LA3_0==58) ) {
                 alt3=2;
             }
             else {
@@ -346,14 +398,14 @@ public class mdParser extends Parser {
             }
             switch (alt3) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:35: Fecha
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:35: Fecha
                     {
-                    match(input,Fecha,FOLLOW_Fecha_in_opcionesA125); 
+                    match(input,Fecha,FOLLOW_Fecha_in_opcionesA158); 
 
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:43: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:43: 
                     {
                     }
                     break;
@@ -361,14 +413,14 @@ public class mdParser extends Parser {
             }
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:45: ( Hora |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:45: ( Hora |)
             int alt4=2;
             int LA4_0 = input.LA(1);
 
             if ( (LA4_0==Hora) ) {
                 alt4=1;
             }
-            else if ( (LA4_0==52) ) {
+            else if ( (LA4_0==58) ) {
                 alt4=2;
             }
             else {
@@ -380,14 +432,14 @@ public class mdParser extends Parser {
             }
             switch (alt4) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:46: Hora
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:46: Hora
                     {
-                    match(input,Hora,FOLLOW_Hora_in_opcionesA132); 
+                    match(input,Hora,FOLLOW_Hora_in_opcionesA165); 
 
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:53: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:53: 
                     {
                     }
                     break;
@@ -395,7 +447,7 @@ public class mdParser extends Parser {
             }
 
 
-            match(input,52,FOLLOW_52_in_opcionesA138); 
+            match(input,58,FOLLOW_58_in_opcionesA171); 
 
             }
 
@@ -415,31 +467,31 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "ubicacionA"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:1: ubicacionA : ( relativa | absoluta );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:1: ubicacionA : ( relativa | ( '/' ALIASA )+ );
     public final void ubicacionA() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:13: ( relativa | absoluta )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:13: ( relativa | ( '/' ALIASA )+ )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( ((LA5_0 >= 27 && LA5_0 <= 28)) ) {
-                alt5=1;
+            if ( ((LA6_0 >= 32 && LA6_0 <= 33)) ) {
+                alt6=1;
             }
-            else if ( (LA5_0==29) ) {
-                alt5=2;
+            else if ( (LA6_0==34) ) {
+                alt6=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:15: relativa
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:15: relativa
                     {
-                    pushFollow(FOLLOW_relativa_in_ubicacionA146);
+                    pushFollow(FOLLOW_relativa_in_ubicacionA179);
                     relativa();
 
                     state._fsp--;
@@ -448,12 +500,39 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:26: absoluta
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:26: ( '/' ALIASA )+
                     {
-                    pushFollow(FOLLOW_absoluta_in_ubicacionA150);
-                    absoluta();
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:26: ( '/' ALIASA )+
+                    int cnt5=0;
+                    loop5:
+                    do {
+                        int alt5=2;
+                        int LA5_0 = input.LA(1);
 
-                    state._fsp--;
+                        if ( (LA5_0==34) ) {
+                            alt5=1;
+                        }
+
+
+                        switch (alt5) {
+                    	case 1 :
+                    	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:27: '/' ALIASA
+                    	    {
+                    	    match(input,34,FOLLOW_34_in_ubicacionA184); 
+
+                    	    match(input,ALIASA,FOLLOW_ALIASA_in_ubicacionA185); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt5 >= 1 ) break loop5;
+                                EarlyExitException eee =
+                                    new EarlyExitException(5, input);
+                                throw eee;
+                        }
+                        cnt5++;
+                    } while (true);
 
 
                     }
@@ -475,75 +554,18 @@ public class mdParser extends Parser {
 
 
 
-    // $ANTLR start "absoluta"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:1: absoluta : ( '/' ALIASA )+ ;
-    public final void absoluta() throws RecognitionException {
-        try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:11: ( ( '/' ALIASA )+ )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:13: ( '/' ALIASA )+
-            {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:13: ( '/' ALIASA )+
-            int cnt6=0;
-            loop6:
-            do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
-
-                if ( (LA6_0==29) ) {
-                    alt6=1;
-                }
-
-
-                switch (alt6) {
-            	case 1 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:14: '/' ALIASA
-            	    {
-            	    match(input,29,FOLLOW_29_in_absoluta159); 
-
-            	    match(input,ALIASA,FOLLOW_ALIASA_in_absoluta160); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt6 >= 1 ) break loop6;
-                        EarlyExitException eee =
-                            new EarlyExitException(6, input);
-                        throw eee;
-                }
-                cnt6++;
-            } while (true);
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return ;
-    }
-    // $ANTLR end "absoluta"
-
-
-
     // $ANTLR start "relativa"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:1: relativa : ( '.' ( '/' ALIASA )+ | '..' ( '/' ALIASA )* );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:1: relativa : ( '.' ( '/' ALIASA )+ | '..' ( '/' ALIASA )+ );
     public final void relativa() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:11: ( '.' ( '/' ALIASA )+ | '..' ( '/' ALIASA )* )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:11: ( '.' ( '/' ALIASA )+ | '..' ( '/' ALIASA )+ )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==27) ) {
+            if ( (LA9_0==32) ) {
                 alt9=1;
             }
-            else if ( (LA9_0==28) ) {
+            else if ( (LA9_0==33) ) {
                 alt9=2;
             }
             else {
@@ -555,29 +577,29 @@ public class mdParser extends Parser {
             }
             switch (alt9) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:13: '.' ( '/' ALIASA )+
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:13: '.' ( '/' ALIASA )+
                     {
-                    match(input,27,FOLLOW_27_in_relativa170); 
+                    match(input,32,FOLLOW_32_in_relativa196); 
 
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:16: ( '/' ALIASA )+
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:16: ( '/' ALIASA )+
                     int cnt7=0;
                     loop7:
                     do {
                         int alt7=2;
                         int LA7_0 = input.LA(1);
 
-                        if ( (LA7_0==29) ) {
+                        if ( (LA7_0==34) ) {
                             alt7=1;
                         }
 
 
                         switch (alt7) {
                     	case 1 :
-                    	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:17: '/' ALIASA
+                    	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:17: '/' ALIASA
                     	    {
-                    	    match(input,29,FOLLOW_29_in_relativa172); 
+                    	    match(input,34,FOLLOW_34_in_relativa198); 
 
-                    	    match(input,ALIASA,FOLLOW_ALIASA_in_relativa173); 
+                    	    match(input,ALIASA,FOLLOW_ALIASA_in_relativa199); 
 
                     	    }
                     	    break;
@@ -595,35 +617,40 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:31: '..' ( '/' ALIASA )*
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:31: '..' ( '/' ALIASA )+
                     {
-                    match(input,28,FOLLOW_28_in_relativa179); 
+                    match(input,33,FOLLOW_33_in_relativa205); 
 
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:35: ( '/' ALIASA )*
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:35: ( '/' ALIASA )+
+                    int cnt8=0;
                     loop8:
                     do {
                         int alt8=2;
                         int LA8_0 = input.LA(1);
 
-                        if ( (LA8_0==29) ) {
+                        if ( (LA8_0==34) ) {
                             alt8=1;
                         }
 
 
                         switch (alt8) {
                     	case 1 :
-                    	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:36: '/' ALIASA
+                    	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:36: '/' ALIASA
                     	    {
-                    	    match(input,29,FOLLOW_29_in_relativa181); 
+                    	    match(input,34,FOLLOW_34_in_relativa207); 
 
-                    	    match(input,ALIASA,FOLLOW_ALIASA_in_relativa182); 
+                    	    match(input,ALIASA,FOLLOW_ALIASA_in_relativa208); 
 
                     	    }
                     	    break;
 
                     	default :
-                    	    break loop8;
+                    	    if ( cnt8 >= 1 ) break loop8;
+                                EarlyExitException eee =
+                                    new EarlyExitException(8, input);
+                                throw eee;
                         }
+                        cnt8++;
                     } while (true);
 
 
@@ -647,54 +674,29 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "listLengClases"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:1: listLengClases : 'class' ALIASA ( ALIASA )+ propiedad '/class' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:1: listLengClases : 's' ALIASA '\"' Comentarios '\"' propiedad 'ss' ;
     public final void listLengClases() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:17: ( 'class' ALIASA ( ALIASA )+ propiedad '/class' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:19: 'class' ALIASA ( ALIASA )+ propiedad '/class'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:17: ( 's' ALIASA '\"' Comentarios '\"' propiedad 'ss' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:19: 's' ALIASA '\"' Comentarios '\"' propiedad 'ss'
             {
-            match(input,42,FOLLOW_42_in_listLengClases294); 
+            match(input,53,FOLLOW_53_in_listLengClases320); 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_listLengClases296); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_listLengClases322); 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:34: ( ALIASA )+
-            int cnt10=0;
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+            match(input,17,FOLLOW_17_in_listLengClases324); 
 
-                if ( (LA10_0==ALIASA) ) {
-                    alt10=1;
-                }
+            match(input,Comentarios,FOLLOW_Comentarios_in_listLengClases325); 
 
+            match(input,17,FOLLOW_17_in_listLengClases326); 
 
-                switch (alt10) {
-            	case 1 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:35: ALIASA
-            	    {
-            	    match(input,ALIASA,FOLLOW_ALIASA_in_listLengClases299); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt10 >= 1 ) break loop10;
-                        EarlyExitException eee =
-                            new EarlyExitException(10, input);
-                        throw eee;
-                }
-                cnt10++;
-            } while (true);
-
-
-            pushFollow(FOLLOW_propiedad_in_listLengClases303);
+            pushFollow(FOLLOW_propiedad_in_listLengClases328);
             propiedad();
 
             state._fsp--;
 
 
-            match(input,31,FOLLOW_31_in_listLengClases305); 
+            match(input,54,FOLLOW_54_in_listLengClases330); 
 
             }
 
@@ -714,29 +716,29 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "propiedad"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:1: propiedad : ( tripleta )+ ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:1: propiedad : ( tripleta )+ ;
     public final void propiedad() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:12: ( ( tripleta )+ )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:14: ( tripleta )+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:12: ( ( tripleta )+ )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:14: ( tripleta )+
             {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:14: ( tripleta )+
-            int cnt11=0;
-            loop11:
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:14: ( tripleta )+
+            int cnt10=0;
+            loop10:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA11_0==LengTipo) ) {
-                    alt11=1;
+                if ( (LA10_0==LengTipo) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt10) {
             	case 1 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:15: tripleta
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:15: tripleta
             	    {
-            	    pushFollow(FOLLOW_tripleta_in_propiedad315);
+            	    pushFollow(FOLLOW_tripleta_in_propiedad340);
             	    tripleta();
 
             	    state._fsp--;
@@ -746,12 +748,12 @@ public class mdParser extends Parser {
             	    break;
 
             	default :
-            	    if ( cnt11 >= 1 ) break loop11;
+            	    if ( cnt10 >= 1 ) break loop10;
                         EarlyExitException eee =
-                            new EarlyExitException(11, input);
+                            new EarlyExitException(10, input);
                         throw eee;
                 }
-                cnt11++;
+                cnt10++;
             } while (true);
 
 
@@ -773,27 +775,27 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "tripleta"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:27:1: tripleta : LengTipo ':' ALIASA '~' expresion ',' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:29:1: tripleta : LengTipo ':' ALIASA '~' expresion ',' ;
     public final void tripleta() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:27:11: ( LengTipo ':' ALIASA '~' expresion ',' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:27:13: LengTipo ':' ALIASA '~' expresion ','
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:29:11: ( LengTipo ':' ALIASA '~' expresion ',' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:29:13: LengTipo ':' ALIASA '~' expresion ','
             {
-            match(input,LengTipo,FOLLOW_LengTipo_in_tripleta325); 
+            match(input,LengTipo,FOLLOW_LengTipo_in_tripleta350); 
 
-            match(input,34,FOLLOW_34_in_tripleta327); 
+            match(input,39,FOLLOW_39_in_tripleta352); 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_tripleta329); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_tripleta354); 
 
-            match(input,53,FOLLOW_53_in_tripleta331); 
+            match(input,59,FOLLOW_59_in_tripleta356); 
 
-            pushFollow(FOLLOW_expresion_in_tripleta333);
+            pushFollow(FOLLOW_expresion_in_tripleta358);
             expresion();
 
             state._fsp--;
 
 
-            match(input,25,FOLLOW_25_in_tripleta335); 
+            match(input,30,FOLLOW_30_in_tripleta360); 
 
             }
 
@@ -813,27 +815,27 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "listLengComandos"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:31:1: listLengComandos : '+' 'nombre' '~' ALIASA 'dir' '~' UbicacionC '++' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:33:1: listLengComandos : '+' 'nombre' '~' ALIASA 'dir' '~' UbicacionC '++' ;
     public final void listLengComandos() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:31:18: ( '+' 'nombre' '~' ALIASA 'dir' '~' UbicacionC '++' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:31:20: '+' 'nombre' '~' ALIASA 'dir' '~' UbicacionC '++'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:33:18: ( '+' 'nombre' '~' ALIASA 'dir' '~' UbicacionC '++' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:33:20: '+' 'nombre' '~' ALIASA 'dir' '~' UbicacionC '++'
             {
-            match(input,23,FOLLOW_23_in_listLengComandos345); 
+            match(input,28,FOLLOW_28_in_listLengComandos370); 
 
-            match(input,47,FOLLOW_47_in_listLengComandos347); 
+            match(input,51,FOLLOW_51_in_listLengComandos372); 
 
-            match(input,53,FOLLOW_53_in_listLengComandos349); 
+            match(input,59,FOLLOW_59_in_listLengComandos374); 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_listLengComandos351); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_listLengComandos376); 
 
-            match(input,43,FOLLOW_43_in_listLengComandos353); 
+            match(input,47,FOLLOW_47_in_listLengComandos378); 
 
-            match(input,53,FOLLOW_53_in_listLengComandos355); 
+            match(input,59,FOLLOW_59_in_listLengComandos380); 
 
-            match(input,UbicacionC,FOLLOW_UbicacionC_in_listLengComandos357); 
+            match(input,UbicacionC,FOLLOW_UbicacionC_in_listLengComandos382); 
 
-            match(input,24,FOLLOW_24_in_listLengComandos359); 
+            match(input,29,FOLLOW_29_in_listLengComandos384); 
 
             }
 
@@ -853,51 +855,51 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "listLengApp"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:36:1: listLengApp : '#' Int ALIASA 'in' argumentoIN '/in' 'out' argumentoOUT '/out' opcionesApp descripcionApp '##' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:1: listLengApp : '#' Int ALIASA 'in' argumentoIN '/in' 'out' argumentoOUT '/out' opcionesApp descripcionApp '##' ;
     public final void listLengApp() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:36:14: ( '#' Int ALIASA 'in' argumentoIN '/in' 'out' argumentoOUT '/out' opcionesApp descripcionApp '##' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:36:16: '#' Int ALIASA 'in' argumentoIN '/in' 'out' argumentoOUT '/out' opcionesApp descripcionApp '##'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:14: ( '#' Int ALIASA 'in' argumentoIN '/in' 'out' argumentoOUT '/out' opcionesApp descripcionApp '##' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:16: '#' Int ALIASA 'in' argumentoIN '/in' 'out' argumentoOUT '/out' opcionesApp descripcionApp '##'
             {
-            match(input,15,FOLLOW_15_in_listLengApp383); 
+            match(input,19,FOLLOW_19_in_listLengApp408); 
 
-            match(input,Int,FOLLOW_Int_in_listLengApp385); 
+            match(input,Int,FOLLOW_Int_in_listLengApp410); 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_listLengApp389); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_listLengApp414); 
 
-            match(input,46,FOLLOW_46_in_listLengApp391); 
+            match(input,50,FOLLOW_50_in_listLengApp416); 
 
-            pushFollow(FOLLOW_argumentoIN_in_listLengApp393);
+            pushFollow(FOLLOW_argumentoIN_in_listLengApp418);
             argumentoIN();
 
             state._fsp--;
 
 
-            match(input,32,FOLLOW_32_in_listLengApp395); 
+            match(input,37,FOLLOW_37_in_listLengApp420); 
 
-            match(input,48,FOLLOW_48_in_listLengApp397); 
+            match(input,52,FOLLOW_52_in_listLengApp422); 
 
-            pushFollow(FOLLOW_argumentoOUT_in_listLengApp399);
+            pushFollow(FOLLOW_argumentoOUT_in_listLengApp424);
             argumentoOUT();
 
             state._fsp--;
 
 
-            match(input,33,FOLLOW_33_in_listLengApp401); 
+            match(input,38,FOLLOW_38_in_listLengApp426); 
 
-            pushFollow(FOLLOW_opcionesApp_in_listLengApp403);
+            pushFollow(FOLLOW_opcionesApp_in_listLengApp428);
             opcionesApp();
 
             state._fsp--;
 
 
-            pushFollow(FOLLOW_descripcionApp_in_listLengApp405);
+            pushFollow(FOLLOW_descripcionApp_in_listLengApp430);
             descripcionApp();
 
             state._fsp--;
 
 
-            match(input,14,FOLLOW_14_in_listLengApp407); 
+            match(input,18,FOLLOW_18_in_listLengApp432); 
 
             }
 
@@ -917,31 +919,31 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "argumentoIN"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:1: argumentoIN : ( archivo | ALIASA | archivo argumentoIN | ALIASA argumentoIN );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:1: argumentoIN : ( archivo | ALIASA | archivo argumentoIN | ALIASA argumentoIN );
     public final void argumentoIN() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:14: ( archivo | ALIASA | archivo argumentoIN | ALIASA argumentoIN )
-            int alt12=4;
-            int LA12_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:14: ( archivo | ALIASA | archivo argumentoIN | ALIASA argumentoIN )
+            int alt11=4;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA12_0==ALIASA) ) {
+            if ( (LA11_0==ALIASA) ) {
                 switch ( input.LA(2) ) {
-                case 27:
+                case 32:
                     {
-                    int LA12_2 = input.LA(3);
+                    int LA11_2 = input.LA(3);
 
-                    if ( (LA12_2==ALIASA) ) {
-                        int LA12_5 = input.LA(4);
+                    if ( (LA11_2==ALIASA) ) {
+                        int LA11_5 = input.LA(4);
 
-                        if ( (LA12_5==32) ) {
-                            alt12=1;
+                        if ( (LA11_5==37) ) {
+                            alt11=1;
                         }
-                        else if ( (LA12_5==ALIASA) ) {
-                            alt12=3;
+                        else if ( (LA11_5==ALIASA) ) {
+                            alt11=3;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 12, 5, input);
+                                new NoViableAltException("", 11, 5, input);
 
                             throw nvae;
 
@@ -949,26 +951,26 @@ public class mdParser extends Parser {
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 12, 2, input);
+                            new NoViableAltException("", 11, 2, input);
 
                         throw nvae;
 
                     }
                     }
                     break;
-                case 32:
+                case 37:
                     {
-                    alt12=2;
+                    alt11=2;
                     }
                     break;
                 case ALIASA:
                     {
-                    alt12=4;
+                    alt11=4;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 12, 1, input);
+                        new NoViableAltException("", 11, 1, input);
 
                     throw nvae;
 
@@ -977,16 +979,16 @@ public class mdParser extends Parser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:16: archivo
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:16: archivo
                     {
-                    pushFollow(FOLLOW_archivo_in_argumentoIN415);
+                    pushFollow(FOLLOW_archivo_in_argumentoIN440);
                     archivo();
 
                     state._fsp--;
@@ -995,22 +997,22 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:36: ALIASA
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:36: ALIASA
                     {
-                    match(input,ALIASA,FOLLOW_ALIASA_in_argumentoIN421); 
+                    match(input,ALIASA,FOLLOW_ALIASA_in_argumentoIN446); 
 
                     }
                     break;
                 case 3 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:45: archivo argumentoIN
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:45: archivo argumentoIN
                     {
-                    pushFollow(FOLLOW_archivo_in_argumentoIN425);
+                    pushFollow(FOLLOW_archivo_in_argumentoIN450);
                     archivo();
 
                     state._fsp--;
 
 
-                    pushFollow(FOLLOW_argumentoIN_in_argumentoIN427);
+                    pushFollow(FOLLOW_argumentoIN_in_argumentoIN452);
                     argumentoIN();
 
                     state._fsp--;
@@ -1019,11 +1021,11 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:77: ALIASA argumentoIN
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:77: ALIASA argumentoIN
                     {
-                    match(input,ALIASA,FOLLOW_ALIASA_in_argumentoIN433); 
+                    match(input,ALIASA,FOLLOW_ALIASA_in_argumentoIN458); 
 
-                    pushFollow(FOLLOW_argumentoIN_in_argumentoIN435);
+                    pushFollow(FOLLOW_argumentoIN_in_argumentoIN460);
                     argumentoIN();
 
                     state._fsp--;
@@ -1049,17 +1051,17 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "archivo"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:1: archivo : ALIASA '.' ALIASA ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:1: archivo : ALIASA '.' ALIASA ;
     public final void archivo() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:11: ( ALIASA '.' ALIASA )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:14: ALIASA '.' ALIASA
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:11: ( ALIASA '.' ALIASA )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:14: ALIASA '.' ALIASA
             {
-            match(input,ALIASA,FOLLOW_ALIASA_in_archivo445); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_archivo470); 
 
-            match(input,27,FOLLOW_27_in_archivo447); 
+            match(input,32,FOLLOW_32_in_archivo472); 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_archivo449); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_archivo474); 
 
             }
 
@@ -1079,25 +1081,25 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "argumentoOUT"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:1: argumentoOUT : ( archivo | ALIASA );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:1: argumentoOUT : ( archivo | ALIASA );
     public final void argumentoOUT() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:15: ( archivo | ALIASA )
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:15: ( archivo | ALIASA )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==ALIASA) ) {
-                int LA13_1 = input.LA(2);
+            if ( (LA12_0==ALIASA) ) {
+                int LA12_1 = input.LA(2);
 
-                if ( (LA13_1==27) ) {
-                    alt13=1;
+                if ( (LA12_1==32) ) {
+                    alt12=1;
                 }
-                else if ( (LA13_1==33) ) {
-                    alt13=2;
+                else if ( (LA12_1==38) ) {
+                    alt12=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 13, 1, input);
+                        new NoViableAltException("", 12, 1, input);
 
                     throw nvae;
 
@@ -1105,16 +1107,16 @@ public class mdParser extends Parser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:17: archivo
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:17: archivo
                     {
-                    pushFollow(FOLLOW_archivo_in_argumentoOUT457);
+                    pushFollow(FOLLOW_archivo_in_argumentoOUT482);
                     archivo();
 
                     state._fsp--;
@@ -1123,9 +1125,9 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:37: ALIASA
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:37: ALIASA
                     {
-                    match(input,ALIASA,FOLLOW_ALIASA_in_argumentoOUT463); 
+                    match(input,ALIASA,FOLLOW_ALIASA_in_argumentoOUT488); 
 
                     }
                     break;
@@ -1147,28 +1149,28 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "opcionesApp"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:1: opcionesApp : ( '-' ALIASA opcionesApp | '-' ALIASA );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:42:1: opcionesApp : ( '-' ALIASA opcionesApp | '-' ALIASA );
     public final void opcionesApp() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:14: ( '-' ALIASA opcionesApp | '-' ALIASA )
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:42:14: ( '-' ALIASA opcionesApp | '-' ALIASA )
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA14_0==26) ) {
-                int LA14_1 = input.LA(2);
+            if ( (LA13_0==31) ) {
+                int LA13_1 = input.LA(2);
 
-                if ( (LA14_1==ALIASA) ) {
-                    int LA14_2 = input.LA(3);
+                if ( (LA13_1==ALIASA) ) {
+                    int LA13_2 = input.LA(3);
 
-                    if ( (LA14_2==26) ) {
-                        alt14=1;
+                    if ( (LA13_2==31) ) {
+                        alt13=1;
                     }
-                    else if ( (LA14_2==ALIASA||LA14_2==14) ) {
-                        alt14=2;
+                    else if ( (LA13_2==ALIASA||LA13_2==18) ) {
+                        alt13=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 14, 2, input);
+                            new NoViableAltException("", 13, 2, input);
 
                         throw nvae;
 
@@ -1176,7 +1178,7 @@ public class mdParser extends Parser {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 14, 1, input);
+                        new NoViableAltException("", 13, 1, input);
 
                     throw nvae;
 
@@ -1184,20 +1186,20 @@ public class mdParser extends Parser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt14) {
+            switch (alt13) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:16: '-' ALIASA opcionesApp
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:42:16: '-' ALIASA opcionesApp
                     {
-                    match(input,26,FOLLOW_26_in_opcionesApp472); 
+                    match(input,31,FOLLOW_31_in_opcionesApp497); 
 
-                    match(input,ALIASA,FOLLOW_ALIASA_in_opcionesApp474); 
+                    match(input,ALIASA,FOLLOW_ALIASA_in_opcionesApp499); 
 
-                    pushFollow(FOLLOW_opcionesApp_in_opcionesApp476);
+                    pushFollow(FOLLOW_opcionesApp_in_opcionesApp501);
                     opcionesApp();
 
                     state._fsp--;
@@ -1206,11 +1208,11 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:41: '-' ALIASA
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:42:41: '-' ALIASA
                     {
-                    match(input,26,FOLLOW_26_in_opcionesApp480); 
+                    match(input,31,FOLLOW_31_in_opcionesApp505); 
 
-                    match(input,ALIASA,FOLLOW_ALIASA_in_opcionesApp482); 
+                    match(input,ALIASA,FOLLOW_ALIASA_in_opcionesApp507); 
 
                     }
                     break;
@@ -1232,36 +1234,36 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "descripcionApp"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:1: descripcionApp : ( ALIASA |);
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:43:1: descripcionApp : ( ALIASA |);
     public final void descripcionApp() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:17: ( ALIASA |)
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:43:17: ( ALIASA |)
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA15_0==ALIASA) ) {
-                alt15=1;
+            if ( (LA14_0==ALIASA) ) {
+                alt14=1;
             }
-            else if ( (LA15_0==14) ) {
-                alt15=2;
+            else if ( (LA14_0==18) ) {
+                alt14=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 15, 0, input);
+                    new NoViableAltException("", 14, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt15) {
+            switch (alt14) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:19: ALIASA
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:43:19: ALIASA
                     {
-                    match(input,ALIASA,FOLLOW_ALIASA_in_descripcionApp490); 
+                    match(input,ALIASA,FOLLOW_ALIASA_in_descripcionApp515); 
 
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:28: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:43:28: 
                     {
                     }
                     break;
@@ -1283,179 +1285,41 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "expresion"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:44:1: expresion : conjuncion ( expresionP |) ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:1: expresion : conjuncion ( expresionP |) ;
     public final void expresion() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:44:12: ( conjuncion ( expresionP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:44:14: conjuncion ( expresionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:12: ( conjuncion ( expresionP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:14: conjuncion ( expresionP |)
             {
-            pushFollow(FOLLOW_conjuncion_in_expresion503);
+            pushFollow(FOLLOW_conjuncion_in_expresion528);
             conjuncion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:44:25: ( expresionP |)
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:25: ( expresionP |)
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA16_0==51) ) {
-                alt16=1;
+            if ( (LA15_0==57) ) {
+                alt15=1;
             }
-            else if ( (LA16_0==21||LA16_0==25||LA16_0==35) ) {
-                alt16=2;
+            else if ( (LA15_0==25||LA15_0==30||LA15_0==40) ) {
+                alt15=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 16, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt16) {
+            switch (alt15) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:44:26: expresionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:26: expresionP
                     {
-                    pushFollow(FOLLOW_expresionP_in_expresion506);
+                    pushFollow(FOLLOW_expresionP_in_expresion531);
                     expresionP();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-                case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:44:39: 
-                    {
-                    }
-                    break;
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return ;
-    }
-    // $ANTLR end "expresion"
-
-
-
-    // $ANTLR start "expresionP"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:45:1: expresionP : '||' conjuncion ( expresionP |) ;
-    public final void expresionP() throws RecognitionException {
-        try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:45:13: ( '||' conjuncion ( expresionP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:45:15: '||' conjuncion ( expresionP |)
-            {
-            match(input,51,FOLLOW_51_in_expresionP518); 
-
-            pushFollow(FOLLOW_conjuncion_in_expresionP520);
-            conjuncion();
-
-            state._fsp--;
-
-
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:45:31: ( expresionP |)
-            int alt17=2;
-            int LA17_0 = input.LA(1);
-
-            if ( (LA17_0==51) ) {
-                alt17=1;
-            }
-            else if ( (LA17_0==21||LA17_0==25||LA17_0==35) ) {
-                alt17=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 17, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt17) {
-                case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:45:32: expresionP
-                    {
-                    pushFollow(FOLLOW_expresionP_in_expresionP523);
-                    expresionP();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-                case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:45:45: 
-                    {
-                    }
-                    break;
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return ;
-    }
-    // $ANTLR end "expresionP"
-
-
-
-    // $ANTLR start "conjuncion"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:1: conjuncion : relacion ( conjuncionP |) ;
-    public final void conjuncion() throws RecognitionException {
-        try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:13: ( relacion ( conjuncionP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:15: relacion ( conjuncionP |)
-            {
-            pushFollow(FOLLOW_relacion_in_conjuncion535);
-            relacion();
-
-            state._fsp--;
-
-
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:24: ( conjuncionP |)
-            int alt18=2;
-            int LA18_0 = input.LA(1);
-
-            if ( (LA18_0==19) ) {
-                alt18=1;
-            }
-            else if ( (LA18_0==21||LA18_0==25||LA18_0==35||LA18_0==51) ) {
-                alt18=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 18, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt18) {
-                case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:25: conjuncionP
-                    {
-                    pushFollow(FOLLOW_conjuncionP_in_conjuncion538);
-                    conjuncionP();
 
                     state._fsp--;
 
@@ -1484,48 +1348,48 @@ public class mdParser extends Parser {
         }
         return ;
     }
-    // $ANTLR end "conjuncion"
+    // $ANTLR end "expresion"
 
 
 
-    // $ANTLR start "conjuncionP"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:1: conjuncionP : '&&' relacion ( conjuncionP |) ;
-    public final void conjuncionP() throws RecognitionException {
+    // $ANTLR start "expresionP"
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:1: expresionP : '||' conjuncion ( expresionP |) ;
+    public final void expresionP() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:14: ( '&&' relacion ( conjuncionP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:16: '&&' relacion ( conjuncionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:13: ( '||' conjuncion ( expresionP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:15: '||' conjuncion ( expresionP |)
             {
-            match(input,19,FOLLOW_19_in_conjuncionP550); 
+            match(input,57,FOLLOW_57_in_expresionP543); 
 
-            pushFollow(FOLLOW_relacion_in_conjuncionP552);
-            relacion();
+            pushFollow(FOLLOW_conjuncion_in_expresionP545);
+            conjuncion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:30: ( conjuncionP |)
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:31: ( expresionP |)
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA19_0==19) ) {
-                alt19=1;
+            if ( (LA16_0==57) ) {
+                alt16=1;
             }
-            else if ( (LA19_0==21||LA19_0==25||LA19_0==35||LA19_0==51) ) {
-                alt19=2;
+            else if ( (LA16_0==25||LA16_0==30||LA16_0==40) ) {
+                alt16=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
+                    new NoViableAltException("", 16, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt19) {
+            switch (alt16) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:31: conjuncionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:47:32: expresionP
                     {
-                    pushFollow(FOLLOW_conjuncionP_in_conjuncionP555);
-                    conjuncionP();
+                    pushFollow(FOLLOW_expresionP_in_expresionP548);
+                    expresionP();
 
                     state._fsp--;
 
@@ -1554,45 +1418,183 @@ public class mdParser extends Parser {
         }
         return ;
     }
+    // $ANTLR end "expresionP"
+
+
+
+    // $ANTLR start "conjuncion"
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:1: conjuncion : relacion ( conjuncionP |) ;
+    public final void conjuncion() throws RecognitionException {
+        try {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:13: ( relacion ( conjuncionP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:15: relacion ( conjuncionP |)
+            {
+            pushFollow(FOLLOW_relacion_in_conjuncion560);
+            relacion();
+
+            state._fsp--;
+
+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:24: ( conjuncionP |)
+            int alt17=2;
+            int LA17_0 = input.LA(1);
+
+            if ( (LA17_0==23) ) {
+                alt17=1;
+            }
+            else if ( (LA17_0==25||LA17_0==30||LA17_0==40||LA17_0==57) ) {
+                alt17=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 17, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt17) {
+                case 1 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:25: conjuncionP
+                    {
+                    pushFollow(FOLLOW_conjuncionP_in_conjuncion563);
+                    conjuncionP();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+                case 2 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:39: 
+                    {
+                    }
+                    break;
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "conjuncion"
+
+
+
+    // $ANTLR start "conjuncionP"
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:1: conjuncionP : '&&' relacion ( conjuncionP |) ;
+    public final void conjuncionP() throws RecognitionException {
+        try {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:14: ( '&&' relacion ( conjuncionP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:16: '&&' relacion ( conjuncionP |)
+            {
+            match(input,23,FOLLOW_23_in_conjuncionP575); 
+
+            pushFollow(FOLLOW_relacion_in_conjuncionP577);
+            relacion();
+
+            state._fsp--;
+
+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:30: ( conjuncionP |)
+            int alt18=2;
+            int LA18_0 = input.LA(1);
+
+            if ( (LA18_0==23) ) {
+                alt18=1;
+            }
+            else if ( (LA18_0==25||LA18_0==30||LA18_0==40||LA18_0==57) ) {
+                alt18=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 18, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt18) {
+                case 1 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:31: conjuncionP
+                    {
+                    pushFollow(FOLLOW_conjuncionP_in_conjuncionP580);
+                    conjuncionP();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+                case 2 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:45: 
+                    {
+                    }
+                    break;
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
     // $ANTLR end "conjuncionP"
 
 
 
     // $ANTLR start "relacion"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:1: relacion : adicion ( relacionP |) ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:1: relacion : adicion ( relacionP |) ;
     public final void relacion() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:11: ( adicion ( relacionP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:13: adicion ( relacionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:11: ( adicion ( relacionP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:13: adicion ( relacionP |)
             {
-            pushFollow(FOLLOW_adicion_in_relacion567);
+            pushFollow(FOLLOW_adicion_in_relacion592);
             adicion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:21: ( relacionP |)
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:21: ( relacionP |)
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA20_0==36) ) {
-                alt20=1;
+            if ( (LA19_0==41) ) {
+                alt19=1;
             }
-            else if ( (LA20_0==19||LA20_0==21||LA20_0==25||LA20_0==35||LA20_0==51) ) {
-                alt20=2;
+            else if ( (LA19_0==23||LA19_0==25||LA19_0==30||LA19_0==40||LA19_0==57) ) {
+                alt19=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
+                    new NoViableAltException("", 19, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt20) {
+            switch (alt19) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:22: relacionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:22: relacionP
                     {
-                    pushFollow(FOLLOW_relacionP_in_relacion570);
+                    pushFollow(FOLLOW_relacionP_in_relacion595);
                     relacionP();
 
                     state._fsp--;
@@ -1601,7 +1603,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:34: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:34: 
                     {
                     }
                     break;
@@ -1627,28 +1629,74 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "relacionP"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:1: relacionP : '<' adicion ( relacionP |) '<=' adicion ( relacionP |) '>' adicion ( relacionP |) '>=' adicion ( relacionP |) '==' adicion ( relacionP |) '!=' adicion ( relacionP |) ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:1: relacionP : '<' adicion ( relacionP |) '<=' adicion ( relacionP |) '>' adicion ( relacionP |) '>=' adicion ( relacionP |) '==' adicion ( relacionP |) '!=' adicion ( relacionP |) ;
     public final void relacionP() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:12: ( '<' adicion ( relacionP |) '<=' adicion ( relacionP |) '>' adicion ( relacionP |) '>=' adicion ( relacionP |) '==' adicion ( relacionP |) '!=' adicion ( relacionP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:14: '<' adicion ( relacionP |) '<=' adicion ( relacionP |) '>' adicion ( relacionP |) '>=' adicion ( relacionP |) '==' adicion ( relacionP |) '!=' adicion ( relacionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:12: ( '<' adicion ( relacionP |) '<=' adicion ( relacionP |) '>' adicion ( relacionP |) '>=' adicion ( relacionP |) '==' adicion ( relacionP |) '!=' adicion ( relacionP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:14: '<' adicion ( relacionP |) '<=' adicion ( relacionP |) '>' adicion ( relacionP |) '>=' adicion ( relacionP |) '==' adicion ( relacionP |) '!=' adicion ( relacionP |)
             {
-            match(input,36,FOLLOW_36_in_relacionP582); 
+            match(input,41,FOLLOW_41_in_relacionP607); 
 
-            pushFollow(FOLLOW_adicion_in_relacionP584);
+            pushFollow(FOLLOW_adicion_in_relacionP609);
             adicion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:26: ( relacionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:26: ( relacionP |)
+            int alt20=2;
+            int LA20_0 = input.LA(1);
+
+            if ( (LA20_0==41) ) {
+                alt20=1;
+            }
+            else if ( (LA20_0==42) ) {
+                alt20=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 20, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt20) {
+                case 1 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:27: relacionP
+                    {
+                    pushFollow(FOLLOW_relacionP_in_relacionP612);
+                    relacionP();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+                case 2 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:39: 
+                    {
+                    }
+                    break;
+
+            }
+
+
+            match(input,42,FOLLOW_42_in_relacionP617); 
+
+            pushFollow(FOLLOW_adicion_in_relacionP619);
+            adicion();
+
+            state._fsp--;
+
+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:53: ( relacionP |)
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( (LA21_0==36) ) {
+            if ( (LA21_0==41) ) {
                 alt21=1;
             }
-            else if ( (LA21_0==37) ) {
+            else if ( (LA21_0==45) ) {
                 alt21=2;
             }
             else {
@@ -1660,9 +1708,9 @@ public class mdParser extends Parser {
             }
             switch (alt21) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:27: relacionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:54: relacionP
                     {
-                    pushFollow(FOLLOW_relacionP_in_relacionP587);
+                    pushFollow(FOLLOW_relacionP_in_relacionP622);
                     relacionP();
 
                     state._fsp--;
@@ -1671,7 +1719,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:39: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:66: 
                     {
                     }
                     break;
@@ -1679,22 +1727,22 @@ public class mdParser extends Parser {
             }
 
 
-            match(input,37,FOLLOW_37_in_relacionP592); 
+            match(input,45,FOLLOW_45_in_relacionP627); 
 
-            pushFollow(FOLLOW_adicion_in_relacionP594);
+            pushFollow(FOLLOW_adicion_in_relacionP629);
             adicion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:53: ( relacionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:79: ( relacionP |)
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( (LA22_0==36) ) {
+            if ( (LA22_0==41) ) {
                 alt22=1;
             }
-            else if ( (LA22_0==40) ) {
+            else if ( (LA22_0==46) ) {
                 alt22=2;
             }
             else {
@@ -1706,9 +1754,9 @@ public class mdParser extends Parser {
             }
             switch (alt22) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:54: relacionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:80: relacionP
                     {
-                    pushFollow(FOLLOW_relacionP_in_relacionP597);
+                    pushFollow(FOLLOW_relacionP_in_relacionP632);
                     relacionP();
 
                     state._fsp--;
@@ -1717,7 +1765,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:66: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:92: 
                     {
                     }
                     break;
@@ -1725,22 +1773,22 @@ public class mdParser extends Parser {
             }
 
 
-            match(input,40,FOLLOW_40_in_relacionP602); 
+            match(input,46,FOLLOW_46_in_relacionP637); 
 
-            pushFollow(FOLLOW_adicion_in_relacionP604);
+            pushFollow(FOLLOW_adicion_in_relacionP639);
             adicion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:79: ( relacionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:106: ( relacionP |)
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==36) ) {
+            if ( (LA23_0==41) ) {
                 alt23=1;
             }
-            else if ( (LA23_0==41) ) {
+            else if ( (LA23_0==44) ) {
                 alt23=2;
             }
             else {
@@ -1752,9 +1800,9 @@ public class mdParser extends Parser {
             }
             switch (alt23) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:80: relacionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:107: relacionP
                     {
-                    pushFollow(FOLLOW_relacionP_in_relacionP607);
+                    pushFollow(FOLLOW_relacionP_in_relacionP642);
                     relacionP();
 
                     state._fsp--;
@@ -1763,7 +1811,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:92: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:119: 
                     {
                     }
                     break;
@@ -1771,22 +1819,22 @@ public class mdParser extends Parser {
             }
 
 
-            match(input,41,FOLLOW_41_in_relacionP612); 
+            match(input,44,FOLLOW_44_in_relacionP652); 
 
-            pushFollow(FOLLOW_adicion_in_relacionP614);
+            pushFollow(FOLLOW_adicion_in_relacionP654);
             adicion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:106: ( relacionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:18: ( relacionP |)
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==36) ) {
+            if ( (LA24_0==41) ) {
                 alt24=1;
             }
-            else if ( (LA24_0==39) ) {
+            else if ( (LA24_0==16) ) {
                 alt24=2;
             }
             else {
@@ -1798,9 +1846,9 @@ public class mdParser extends Parser {
             }
             switch (alt24) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:107: relacionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:19: relacionP
                     {
-                    pushFollow(FOLLOW_relacionP_in_relacionP617);
+                    pushFollow(FOLLOW_relacionP_in_relacionP657);
                     relacionP();
 
                     state._fsp--;
@@ -1809,7 +1857,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:119: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:31: 
                     {
                     }
                     break;
@@ -1817,22 +1865,22 @@ public class mdParser extends Parser {
             }
 
 
-            match(input,39,FOLLOW_39_in_relacionP627); 
+            match(input,16,FOLLOW_16_in_relacionP662); 
 
-            pushFollow(FOLLOW_adicion_in_relacionP629);
+            pushFollow(FOLLOW_adicion_in_relacionP664);
             adicion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:18: ( relacionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:45: ( relacionP |)
             int alt25=2;
             int LA25_0 = input.LA(1);
 
-            if ( (LA25_0==36) ) {
+            if ( (LA25_0==41) ) {
                 alt25=1;
             }
-            else if ( (LA25_0==13) ) {
+            else if ( (LA25_0==16||LA25_0==23||LA25_0==25||LA25_0==30||LA25_0==40||LA25_0==42||(LA25_0 >= 44 && LA25_0 <= 46)||LA25_0==57) ) {
                 alt25=2;
             }
             else {
@@ -1844,9 +1892,9 @@ public class mdParser extends Parser {
             }
             switch (alt25) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:19: relacionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:46: relacionP
                     {
-                    pushFollow(FOLLOW_relacionP_in_relacionP632);
+                    pushFollow(FOLLOW_relacionP_in_relacionP667);
                     relacionP();
 
                     state._fsp--;
@@ -1855,53 +1903,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:31: 
-                    {
-                    }
-                    break;
-
-            }
-
-
-            match(input,13,FOLLOW_13_in_relacionP637); 
-
-            pushFollow(FOLLOW_adicion_in_relacionP639);
-            adicion();
-
-            state._fsp--;
-
-
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:45: ( relacionP |)
-            int alt26=2;
-            int LA26_0 = input.LA(1);
-
-            if ( (LA26_0==36) ) {
-                alt26=1;
-            }
-            else if ( (LA26_0==13||LA26_0==19||LA26_0==21||LA26_0==25||LA26_0==35||LA26_0==37||(LA26_0 >= 39 && LA26_0 <= 41)||LA26_0==51) ) {
-                alt26=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 26, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt26) {
-                case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:46: relacionP
-                    {
-                    pushFollow(FOLLOW_relacionP_in_relacionP642);
-                    relacionP();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-                case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:50:58: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:58: 
                     {
                     }
                     break;
@@ -1927,40 +1929,40 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "adicion"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:1: adicion : termino ( adicionP |) ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:1: adicion : termino ( adicionP |) ;
     public final void adicion() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:11: ( termino ( adicionP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:13: termino ( adicionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:11: ( termino ( adicionP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:13: termino ( adicionP |)
             {
-            pushFollow(FOLLOW_termino_in_adicion655);
+            pushFollow(FOLLOW_termino_in_adicion680);
             termino();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:21: ( adicionP |)
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:21: ( adicionP |)
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA27_0==23) ) {
-                alt27=1;
+            if ( (LA26_0==28||LA26_0==31) ) {
+                alt26=1;
             }
-            else if ( (LA27_0==13||LA27_0==19||LA27_0==21||LA27_0==25||(LA27_0 >= 35 && LA27_0 <= 37)||(LA27_0 >= 39 && LA27_0 <= 41)||LA27_0==51) ) {
-                alt27=2;
+            else if ( (LA26_0==16||LA26_0==23||LA26_0==25||LA26_0==30||(LA26_0 >= 40 && LA26_0 <= 42)||(LA26_0 >= 44 && LA26_0 <= 46)||LA26_0==57) ) {
+                alt26=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 27, 0, input);
+                    new NoViableAltException("", 26, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt27) {
+            switch (alt26) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:22: adicionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:22: adicionP
                     {
-                    pushFollow(FOLLOW_adicionP_in_adicion658);
+                    pushFollow(FOLLOW_adicionP_in_adicion683);
                     adicionP();
 
                     state._fsp--;
@@ -1969,7 +1971,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:51:33: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:33: 
                     {
                     }
                     break;
@@ -1995,74 +1997,17 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "adicionP"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:1: adicionP : '+' termino ( adicionP |) '-' termino ( adicionP |) ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:1: adicionP : ( '+' termino ( adicionP |) | '-' termino ( adicionP |) );
     public final void adicionP() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:11: ( '+' termino ( adicionP |) '-' termino ( adicionP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:13: '+' termino ( adicionP |) '-' termino ( adicionP |)
-            {
-            match(input,23,FOLLOW_23_in_adicionP670); 
-
-            pushFollow(FOLLOW_termino_in_adicionP672);
-            termino();
-
-            state._fsp--;
-
-
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:25: ( adicionP |)
-            int alt28=2;
-            int LA28_0 = input.LA(1);
-
-            if ( (LA28_0==23) ) {
-                alt28=1;
-            }
-            else if ( (LA28_0==26) ) {
-                alt28=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 28, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt28) {
-                case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:26: adicionP
-                    {
-                    pushFollow(FOLLOW_adicionP_in_adicionP675);
-                    adicionP();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-                case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:37: 
-                    {
-                    }
-                    break;
-
-            }
-
-
-            match(input,26,FOLLOW_26_in_adicionP681); 
-
-            pushFollow(FOLLOW_termino_in_adicionP683);
-            termino();
-
-            state._fsp--;
-
-
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:51: ( adicionP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:11: ( '+' termino ( adicionP |) | '-' termino ( adicionP |) )
             int alt29=2;
             int LA29_0 = input.LA(1);
 
-            if ( (LA29_0==23) ) {
+            if ( (LA29_0==28) ) {
                 alt29=1;
             }
-            else if ( (LA29_0==13||LA29_0==19||LA29_0==21||(LA29_0 >= 25 && LA29_0 <= 26)||(LA29_0 >= 35 && LA29_0 <= 37)||(LA29_0 >= 39 && LA29_0 <= 41)||LA29_0==51) ) {
+            else if ( (LA29_0==31) ) {
                 alt29=2;
             }
             else {
@@ -2074,27 +2019,109 @@ public class mdParser extends Parser {
             }
             switch (alt29) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:52: adicionP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:13: '+' termino ( adicionP |)
                     {
-                    pushFollow(FOLLOW_adicionP_in_adicionP686);
-                    adicionP();
+                    match(input,28,FOLLOW_28_in_adicionP695); 
+
+                    pushFollow(FOLLOW_termino_in_adicionP697);
+                    termino();
 
                     state._fsp--;
+
+
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:25: ( adicionP |)
+                    int alt27=2;
+                    int LA27_0 = input.LA(1);
+
+                    if ( (LA27_0==28||LA27_0==31) ) {
+                        alt27=1;
+                    }
+                    else if ( (LA27_0==16||LA27_0==23||LA27_0==25||LA27_0==30||(LA27_0 >= 40 && LA27_0 <= 42)||(LA27_0 >= 44 && LA27_0 <= 46)||LA27_0==57) ) {
+                        alt27=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 27, 0, input);
+
+                        throw nvae;
+
+                    }
+                    switch (alt27) {
+                        case 1 :
+                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:26: adicionP
+                            {
+                            pushFollow(FOLLOW_adicionP_in_adicionP700);
+                            adicionP();
+
+                            state._fsp--;
+
+
+                            }
+                            break;
+                        case 2 :
+                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:37: 
+                            {
+                            }
+                            break;
+
+                    }
 
 
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:52:63: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:41: '-' termino ( adicionP |)
                     {
+                    match(input,31,FOLLOW_31_in_adicionP708); 
+
+                    pushFollow(FOLLOW_termino_in_adicionP710);
+                    termino();
+
+                    state._fsp--;
+
+
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:53: ( adicionP |)
+                    int alt28=2;
+                    int LA28_0 = input.LA(1);
+
+                    if ( (LA28_0==28||LA28_0==31) ) {
+                        alt28=1;
+                    }
+                    else if ( (LA28_0==16||LA28_0==23||LA28_0==25||LA28_0==30||(LA28_0 >= 40 && LA28_0 <= 42)||(LA28_0 >= 44 && LA28_0 <= 46)||LA28_0==57) ) {
+                        alt28=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 28, 0, input);
+
+                        throw nvae;
+
+                    }
+                    switch (alt28) {
+                        case 1 :
+                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:54: adicionP
+                            {
+                            pushFollow(FOLLOW_adicionP_in_adicionP713);
+                            adicionP();
+
+                            state._fsp--;
+
+
+                            }
+                            break;
+                        case 2 :
+                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:65: 
+                            {
+                            }
+                            break;
+
+                    }
+
+
                     }
                     break;
 
             }
-
-
-            }
-
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -2111,26 +2138,26 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "termino"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:1: termino : negacion ( terminoP |) ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:1: termino : negacion ( terminoP |) ;
     public final void termino() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:11: ( negacion ( terminoP |) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:13: negacion ( terminoP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:11: ( negacion ( terminoP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:13: negacion ( terminoP |)
             {
-            pushFollow(FOLLOW_negacion_in_termino699);
+            pushFollow(FOLLOW_negacion_in_termino726);
             negacion();
 
             state._fsp--;
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:22: ( terminoP |)
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:22: ( terminoP |)
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( (LA30_0==22||LA30_0==30) ) {
+            if ( (LA30_0==26||LA30_0==36) ) {
                 alt30=1;
             }
-            else if ( (LA30_0==13||LA30_0==19||LA30_0==21||LA30_0==23||(LA30_0 >= 25 && LA30_0 <= 26)||(LA30_0 >= 35 && LA30_0 <= 37)||(LA30_0 >= 39 && LA30_0 <= 41)||LA30_0==51) ) {
+            else if ( (LA30_0==16||LA30_0==23||LA30_0==25||LA30_0==28||(LA30_0 >= 30 && LA30_0 <= 31)||(LA30_0 >= 40 && LA30_0 <= 42)||(LA30_0 >= 44 && LA30_0 <= 46)||LA30_0==57) ) {
                 alt30=2;
             }
             else {
@@ -2142,9 +2169,9 @@ public class mdParser extends Parser {
             }
             switch (alt30) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:23: terminoP
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:23: terminoP
                     {
-                    pushFollow(FOLLOW_terminoP_in_termino702);
+                    pushFollow(FOLLOW_terminoP_in_termino729);
                     terminoP();
 
                     state._fsp--;
@@ -2153,7 +2180,7 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:53:34: 
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:34: 
                     {
                     }
                     break;
@@ -2179,17 +2206,17 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "terminoP"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:1: terminoP : ( '*' negacion ( terminoP |) | '//' negacion ( terminoP |) );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:1: terminoP : ( '*' negacion ( terminoP |) | '//' negacion ( terminoP |) );
     public final void terminoP() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:11: ( '*' negacion ( terminoP |) | '//' negacion ( terminoP |) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:11: ( '*' negacion ( terminoP |) | '//' negacion ( terminoP |) )
             int alt33=2;
             int LA33_0 = input.LA(1);
 
-            if ( (LA33_0==22) ) {
+            if ( (LA33_0==26) ) {
                 alt33=1;
             }
-            else if ( (LA33_0==30) ) {
+            else if ( (LA33_0==36) ) {
                 alt33=2;
             }
             else {
@@ -2201,24 +2228,24 @@ public class mdParser extends Parser {
             }
             switch (alt33) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:13: '*' negacion ( terminoP |)
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:13: '*' negacion ( terminoP |)
                     {
-                    match(input,22,FOLLOW_22_in_terminoP714); 
+                    match(input,26,FOLLOW_26_in_terminoP741); 
 
-                    pushFollow(FOLLOW_negacion_in_terminoP716);
+                    pushFollow(FOLLOW_negacion_in_terminoP743);
                     negacion();
 
                     state._fsp--;
 
 
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:26: ( terminoP |)
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:26: ( terminoP |)
                     int alt31=2;
                     int LA31_0 = input.LA(1);
 
-                    if ( (LA31_0==22||LA31_0==30) ) {
+                    if ( (LA31_0==26||LA31_0==36) ) {
                         alt31=1;
                     }
-                    else if ( (LA31_0==13||LA31_0==19||LA31_0==21||LA31_0==23||(LA31_0 >= 25 && LA31_0 <= 26)||(LA31_0 >= 35 && LA31_0 <= 37)||(LA31_0 >= 39 && LA31_0 <= 41)||LA31_0==51) ) {
+                    else if ( (LA31_0==16||LA31_0==23||LA31_0==25||LA31_0==28||(LA31_0 >= 30 && LA31_0 <= 31)||(LA31_0 >= 40 && LA31_0 <= 42)||(LA31_0 >= 44 && LA31_0 <= 46)||LA31_0==57) ) {
                         alt31=2;
                     }
                     else {
@@ -2230,9 +2257,9 @@ public class mdParser extends Parser {
                     }
                     switch (alt31) {
                         case 1 :
-                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:27: terminoP
+                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:27: terminoP
                             {
-                            pushFollow(FOLLOW_terminoP_in_terminoP719);
+                            pushFollow(FOLLOW_terminoP_in_terminoP746);
                             terminoP();
 
                             state._fsp--;
@@ -2241,7 +2268,7 @@ public class mdParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:38: 
+                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:38: 
                             {
                             }
                             break;
@@ -2252,24 +2279,24 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:42: '//' negacion ( terminoP |)
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:42: '//' negacion ( terminoP |)
                     {
-                    match(input,30,FOLLOW_30_in_terminoP727); 
+                    match(input,36,FOLLOW_36_in_terminoP754); 
 
-                    pushFollow(FOLLOW_negacion_in_terminoP729);
+                    pushFollow(FOLLOW_negacion_in_terminoP756);
                     negacion();
 
                     state._fsp--;
 
 
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:56: ( terminoP |)
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:56: ( terminoP |)
                     int alt32=2;
                     int LA32_0 = input.LA(1);
 
-                    if ( (LA32_0==22||LA32_0==30) ) {
+                    if ( (LA32_0==26||LA32_0==36) ) {
                         alt32=1;
                     }
-                    else if ( (LA32_0==13||LA32_0==19||LA32_0==21||LA32_0==23||(LA32_0 >= 25 && LA32_0 <= 26)||(LA32_0 >= 35 && LA32_0 <= 37)||(LA32_0 >= 39 && LA32_0 <= 41)||LA32_0==51) ) {
+                    else if ( (LA32_0==16||LA32_0==23||LA32_0==25||LA32_0==28||(LA32_0 >= 30 && LA32_0 <= 31)||(LA32_0 >= 40 && LA32_0 <= 42)||(LA32_0 >= 44 && LA32_0 <= 46)||LA32_0==57) ) {
                         alt32=2;
                     }
                     else {
@@ -2281,9 +2308,9 @@ public class mdParser extends Parser {
                     }
                     switch (alt32) {
                         case 1 :
-                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:57: terminoP
+                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:57: terminoP
                             {
-                            pushFollow(FOLLOW_terminoP_in_terminoP732);
+                            pushFollow(FOLLOW_terminoP_in_terminoP759);
                             terminoP();
 
                             state._fsp--;
@@ -2292,7 +2319,7 @@ public class mdParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:54:68: 
+                            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:68: 
                             {
                             }
                             break;
@@ -2320,17 +2347,17 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "negacion"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:1: negacion : ( factor | '!' factor );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:57:1: negacion : ( factor | '!' factor );
     public final void negacion() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:11: ( factor | '!' factor )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:57:11: ( factor | '!' factor )
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( ((LA34_0 >= ALIASA && LA34_0 <= String)||LA34_0==20||(LA34_0 >= 27 && LA34_0 <= 29)||LA34_0==42) ) {
+            if ( ((LA34_0 >= ALIASA && LA34_0 <= Bool)||(LA34_0 >= Fecha && LA34_0 <= LengTipo)||LA34_0==String||LA34_0==24||(LA34_0 >= 32 && LA34_0 <= 34)||LA34_0==53) ) {
                 alt34=1;
             }
-            else if ( (LA34_0==12) ) {
+            else if ( (LA34_0==15) ) {
                 alt34=2;
             }
             else {
@@ -2342,9 +2369,9 @@ public class mdParser extends Parser {
             }
             switch (alt34) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:13: factor
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:57:13: factor
                     {
-                    pushFollow(FOLLOW_factor_in_negacion744);
+                    pushFollow(FOLLOW_factor_in_negacion771);
                     factor();
 
                     state._fsp--;
@@ -2353,11 +2380,11 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:55:22: '!' factor
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:57:22: '!' factor
                     {
-                    match(input,12,FOLLOW_12_in_negacion748); 
+                    match(input,15,FOLLOW_15_in_negacion775); 
 
-                    pushFollow(FOLLOW_factor_in_negacion749);
+                    pushFollow(FOLLOW_factor_in_negacion776);
                     factor();
 
                     state._fsp--;
@@ -2383,10 +2410,10 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "factor"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:1: factor : ( ALIASA | tripleta | literal | '(' expresion ')' );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:58:1: factor : ( ALIASA | tripleta | literal | '(' expresion ')' );
     public final void factor() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:10: ( ALIASA | tripleta | literal | '(' expresion ')' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:58:10: ( ALIASA | tripleta | literal | '(' expresion ')' )
             int alt35=4;
             switch ( input.LA(1) ) {
             case ALIASA:
@@ -2404,15 +2431,15 @@ public class mdParser extends Parser {
             case Hora:
             case Int:
             case String:
-            case 27:
-            case 28:
-            case 29:
-            case 42:
+            case 32:
+            case 33:
+            case 34:
+            case 53:
                 {
                 alt35=3;
                 }
                 break;
-            case 20:
+            case 24:
                 {
                 alt35=4;
                 }
@@ -2427,16 +2454,16 @@ public class mdParser extends Parser {
 
             switch (alt35) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:12: ALIASA
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:58:12: ALIASA
                     {
-                    match(input,ALIASA,FOLLOW_ALIASA_in_factor758); 
+                    match(input,ALIASA,FOLLOW_ALIASA_in_factor785); 
 
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:21: tripleta
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:58:21: tripleta
                     {
-                    pushFollow(FOLLOW_tripleta_in_factor762);
+                    pushFollow(FOLLOW_tripleta_in_factor789);
                     tripleta();
 
                     state._fsp--;
@@ -2445,9 +2472,9 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:32: literal
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:58:32: literal
                     {
-                    pushFollow(FOLLOW_literal_in_factor766);
+                    pushFollow(FOLLOW_literal_in_factor793);
                     literal();
 
                     state._fsp--;
@@ -2456,17 +2483,17 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:56:42: '(' expresion ')'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:58:42: '(' expresion ')'
                     {
-                    match(input,20,FOLLOW_20_in_factor770); 
+                    match(input,24,FOLLOW_24_in_factor797); 
 
-                    pushFollow(FOLLOW_expresion_in_factor772);
+                    pushFollow(FOLLOW_expresion_in_factor799);
                     expresion();
 
                     state._fsp--;
 
 
-                    match(input,21,FOLLOW_21_in_factor775); 
+                    match(input,25,FOLLOW_25_in_factor802); 
 
                     }
                     break;
@@ -2488,59 +2515,59 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "listLengFns"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:60:1: listLengFns : '%=' literal ALIASA '(' literal ALIASA ( ',' ( literal ALIASA ) )* ')' '{' instrucciones '}' '=%' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:62:1: listLengFns : '%=' literal ALIASA '(' literal ALIASA ( ',' ( literal ALIASA ) )* ')' '{' instrucciones '}' '=%' ;
     public final void listLengFns() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:60:14: ( '%=' literal ALIASA '(' literal ALIASA ( ',' ( literal ALIASA ) )* ')' '{' instrucciones '}' '=%' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:60:16: '%=' literal ALIASA '(' literal ALIASA ( ',' ( literal ALIASA ) )* ')' '{' instrucciones '}' '=%'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:62:14: ( '%=' literal ALIASA '(' literal ALIASA ( ',' ( literal ALIASA ) )* ')' '{' instrucciones '}' '=%' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:62:16: '%=' literal ALIASA '(' literal ALIASA ( ',' ( literal ALIASA ) )* ')' '{' instrucciones '}' '=%'
             {
-            match(input,18,FOLLOW_18_in_listLengFns786); 
+            match(input,22,FOLLOW_22_in_listLengFns813); 
 
-            pushFollow(FOLLOW_literal_in_listLengFns788);
+            pushFollow(FOLLOW_literal_in_listLengFns815);
             literal();
 
             state._fsp--;
 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_listLengFns790); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_listLengFns817); 
 
-            match(input,20,FOLLOW_20_in_listLengFns792); 
+            match(input,24,FOLLOW_24_in_listLengFns819); 
 
-            pushFollow(FOLLOW_literal_in_listLengFns794);
+            pushFollow(FOLLOW_literal_in_listLengFns821);
             literal();
 
             state._fsp--;
 
 
-            match(input,ALIASA,FOLLOW_ALIASA_in_listLengFns796); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_listLengFns823); 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:60:55: ( ',' ( literal ALIASA ) )*
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:62:55: ( ',' ( literal ALIASA ) )*
             loop36:
             do {
                 int alt36=2;
                 int LA36_0 = input.LA(1);
 
-                if ( (LA36_0==25) ) {
+                if ( (LA36_0==30) ) {
                     alt36=1;
                 }
 
 
                 switch (alt36) {
             	case 1 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:60:56: ',' ( literal ALIASA )
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:62:56: ',' ( literal ALIASA )
             	    {
-            	    match(input,25,FOLLOW_25_in_listLengFns799); 
+            	    match(input,30,FOLLOW_30_in_listLengFns826); 
 
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:60:59: ( literal ALIASA )
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:60:60: literal ALIASA
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:62:59: ( literal ALIASA )
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:62:60: literal ALIASA
             	    {
-            	    pushFollow(FOLLOW_literal_in_listLengFns801);
+            	    pushFollow(FOLLOW_literal_in_listLengFns828);
             	    literal();
 
             	    state._fsp--;
 
 
-            	    match(input,ALIASA,FOLLOW_ALIASA_in_listLengFns803); 
+            	    match(input,ALIASA,FOLLOW_ALIASA_in_listLengFns830); 
 
             	    }
 
@@ -2554,19 +2581,19 @@ public class mdParser extends Parser {
             } while (true);
 
 
-            match(input,21,FOLLOW_21_in_listLengFns808); 
+            match(input,25,FOLLOW_25_in_listLengFns835); 
 
-            match(input,50,FOLLOW_50_in_listLengFns810); 
+            match(input,56,FOLLOW_56_in_listLengFns837); 
 
-            pushFollow(FOLLOW_instrucciones_in_listLengFns812);
+            pushFollow(FOLLOW_instrucciones_in_listLengFns839);
             instrucciones();
 
             state._fsp--;
 
 
-            match(input,52,FOLLOW_52_in_listLengFns814); 
+            match(input,58,FOLLOW_58_in_listLengFns841); 
 
-            match(input,38,FOLLOW_38_in_listLengFns816); 
+            match(input,43,FOLLOW_43_in_listLengFns843); 
 
             }
 
@@ -2586,10 +2613,10 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "literal"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:1: literal : ( Int | Bool | Fecha | Hora | file | listLengClases | String );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:1: literal : ( Int | Bool | Fecha | Hora | file | listLengClases | String );
     public final void literal() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:11: ( Int | Bool | Fecha | Hora | file | listLengClases | String )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:11: ( Int | Bool | Fecha | Hora | file | listLengClases | String )
             int alt37=7;
             switch ( input.LA(1) ) {
             case Int:
@@ -2612,14 +2639,14 @@ public class mdParser extends Parser {
                 alt37=4;
                 }
                 break;
-            case 27:
-            case 28:
-            case 29:
+            case 32:
+            case 33:
+            case 34:
                 {
                 alt37=5;
                 }
                 break;
-            case 42:
+            case 53:
                 {
                 alt37=6;
                 }
@@ -2639,37 +2666,37 @@ public class mdParser extends Parser {
 
             switch (alt37) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:13: Int
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:13: Int
                     {
-                    match(input,Int,FOLLOW_Int_in_literal825); 
+                    match(input,Int,FOLLOW_Int_in_literal852); 
 
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:19: Bool
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:19: Bool
                     {
-                    match(input,Bool,FOLLOW_Bool_in_literal829); 
+                    match(input,Bool,FOLLOW_Bool_in_literal856); 
 
                     }
                     break;
                 case 3 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:26: Fecha
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:26: Fecha
                     {
-                    match(input,Fecha,FOLLOW_Fecha_in_literal833); 
+                    match(input,Fecha,FOLLOW_Fecha_in_literal860); 
 
                     }
                     break;
                 case 4 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:34: Hora
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:34: Hora
                     {
-                    match(input,Hora,FOLLOW_Hora_in_literal837); 
+                    match(input,Hora,FOLLOW_Hora_in_literal864); 
 
                     }
                     break;
                 case 5 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:41: file
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:41: file
                     {
-                    pushFollow(FOLLOW_file_in_literal841);
+                    pushFollow(FOLLOW_file_in_literal868);
                     file();
 
                     state._fsp--;
@@ -2678,9 +2705,9 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:48: listLengClases
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:48: listLengClases
                     {
-                    pushFollow(FOLLOW_listLengClases_in_literal845);
+                    pushFollow(FOLLOW_listLengClases_in_literal872);
                     listLengClases();
 
                     state._fsp--;
@@ -2689,9 +2716,9 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:65: String
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:63:65: String
                     {
-                    match(input,String,FOLLOW_String_in_literal849); 
+                    match(input,String,FOLLOW_String_in_literal876); 
 
                     }
                     break;
@@ -2713,51 +2740,20 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "file"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:65:1: file : ( relativa | absoluta );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:68:1: file : ubicacionA ;
     public final void file() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:65:8: ( relativa | absoluta )
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:68:8: ( ubicacionA )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:68:10: ubicacionA
+            {
+            pushFollow(FOLLOW_ubicacionA_in_file1020);
+            ubicacionA();
 
-            if ( ((LA38_0 >= 27 && LA38_0 <= 28)) ) {
-                alt38=1;
-            }
-            else if ( (LA38_0==29) ) {
-                alt38=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 38, 0, input);
+            state._fsp--;
 
-                throw nvae;
 
             }
-            switch (alt38) {
-                case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:65:10: relativa
-                    {
-                    pushFollow(FOLLOW_relativa_in_file937);
-                    relativa();
 
-                    state._fsp--;
-
-
-                    }
-                    break;
-                case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:65:21: absoluta
-                    {
-                    pushFollow(FOLLOW_absoluta_in_file941);
-                    absoluta();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -2774,213 +2770,40 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "z"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:67:1: z : ( listVariables listInstrucciones |);
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:70:1: z : ( listVariables listInstrucciones |);
     public final void z() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:67:5: ( listVariables listInstrucciones |)
-            int alt39=2;
-            int LA39_0 = input.LA(1);
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:70:5: ( listVariables listInstrucciones |)
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA39_0==LengTipo) ) {
-                alt39=1;
+            if ( (LA38_0==LengTipo) ) {
+                alt38=1;
             }
-            else if ( (LA39_0==EOF) ) {
-                alt39=2;
+            else if ( (LA38_0==EOF) ) {
+                alt38=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 39, 0, input);
+                    new NoViableAltException("", 38, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt39) {
+            switch (alt38) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:67:7: listVariables listInstrucciones
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:70:7: listVariables listInstrucciones
                     {
-                    pushFollow(FOLLOW_listVariables_in_z978);
+                    pushFollow(FOLLOW_listVariables_in_z1057);
                     listVariables();
 
                     state._fsp--;
 
 
-                    pushFollow(FOLLOW_listInstrucciones_in_z980);
+                    pushFollow(FOLLOW_listInstrucciones_in_z1059);
                     listInstrucciones();
 
                     state._fsp--;
-
-
-                    }
-                    break;
-                case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:67:41: 
-                    {
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return ;
-    }
-    // $ANTLR end "z"
-
-
-
-    // $ANTLR start "listVariables"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:68:1: listVariables : ( lengVar )+ ;
-    public final void listVariables() throws RecognitionException {
-        try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:68:16: ( ( lengVar )+ )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:68:18: ( lengVar )+
-            {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:68:18: ( lengVar )+
-            int cnt40=0;
-            loop40:
-            do {
-                int alt40=2;
-                int LA40_0 = input.LA(1);
-
-                if ( (LA40_0==LengTipo) ) {
-                    alt40=1;
-                }
-
-
-                switch (alt40) {
-            	case 1 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:68:19: lengVar
-            	    {
-            	    pushFollow(FOLLOW_lengVar_in_listVariables992);
-            	    lengVar();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt40 >= 1 ) break loop40;
-                        EarlyExitException eee =
-                            new EarlyExitException(40, input);
-                        throw eee;
-                }
-                cnt40++;
-            } while (true);
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return ;
-    }
-    // $ANTLR end "listVariables"
-
-
-
-    // $ANTLR start "lengVar"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:69:1: lengVar : LengTipo ALIASA ';' ;
-    public final void lengVar() throws RecognitionException {
-        try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:69:11: ( LengTipo ALIASA ';' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:69:13: LengTipo ALIASA ';'
-            {
-            match(input,LengTipo,FOLLOW_LengTipo_in_lengVar1003); 
-
-            match(input,ALIASA,FOLLOW_ALIASA_in_lengVar1005); 
-
-            match(input,35,FOLLOW_35_in_lengVar1007); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return ;
-    }
-    // $ANTLR end "lengVar"
-
-
-
-    // $ANTLR start "listInstrucciones"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:70:1: listInstrucciones : ( ( instrucciones )+ |);
-    public final void listInstrucciones() throws RecognitionException {
-        try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:70:20: ( ( instrucciones )+ |)
-            int alt42=2;
-            int LA42_0 = input.LA(1);
-
-            if ( (LA42_0==ALIASA||LA42_0==45||LA42_0==49) ) {
-                alt42=1;
-            }
-            else if ( (LA42_0==EOF||LA42_0==52) ) {
-                alt42=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 42, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt42) {
-                case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:70:22: ( instrucciones )+
-                    {
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:70:22: ( instrucciones )+
-                    int cnt41=0;
-                    loop41:
-                    do {
-                        int alt41=2;
-                        int LA41_0 = input.LA(1);
-
-                        if ( (LA41_0==ALIASA||LA41_0==45||LA41_0==49) ) {
-                            alt41=1;
-                        }
-
-
-                        switch (alt41) {
-                    	case 1 :
-                    	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:70:23: instrucciones
-                    	    {
-                    	    pushFollow(FOLLOW_instrucciones_in_listInstrucciones1016);
-                    	    instrucciones();
-
-                    	    state._fsp--;
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt41 >= 1 ) break loop41;
-                                EarlyExitException eee =
-                                    new EarlyExitException(41, input);
-                                throw eee;
-                        }
-                        cnt41++;
-                    } while (true);
 
 
                     }
@@ -3003,45 +2826,218 @@ public class mdParser extends Parser {
         }
         return ;
     }
+    // $ANTLR end "z"
+
+
+
+    // $ANTLR start "listVariables"
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:1: listVariables : ( lengVar )+ ;
+    public final void listVariables() throws RecognitionException {
+        try {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:16: ( ( lengVar )+ )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:18: ( lengVar )+
+            {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:18: ( lengVar )+
+            int cnt39=0;
+            loop39:
+            do {
+                int alt39=2;
+                int LA39_0 = input.LA(1);
+
+                if ( (LA39_0==LengTipo) ) {
+                    alt39=1;
+                }
+
+
+                switch (alt39) {
+            	case 1 :
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:19: lengVar
+            	    {
+            	    pushFollow(FOLLOW_lengVar_in_listVariables1071);
+            	    lengVar();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt39 >= 1 ) break loop39;
+                        EarlyExitException eee =
+                            new EarlyExitException(39, input);
+                        throw eee;
+                }
+                cnt39++;
+            } while (true);
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "listVariables"
+
+
+
+    // $ANTLR start "lengVar"
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:72:1: lengVar : LengTipo ALIASA ';' ;
+    public final void lengVar() throws RecognitionException {
+        try {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:72:11: ( LengTipo ALIASA ';' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:72:13: LengTipo ALIASA ';'
+            {
+            match(input,LengTipo,FOLLOW_LengTipo_in_lengVar1082); 
+
+            match(input,ALIASA,FOLLOW_ALIASA_in_lengVar1084); 
+
+            match(input,40,FOLLOW_40_in_lengVar1086); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "lengVar"
+
+
+
+    // $ANTLR start "listInstrucciones"
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:1: listInstrucciones : ( ( instrucciones )+ |);
+    public final void listInstrucciones() throws RecognitionException {
+        try {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:20: ( ( instrucciones )+ |)
+            int alt41=2;
+            int LA41_0 = input.LA(1);
+
+            if ( (LA41_0==ALIASA||LA41_0==49||LA41_0==55) ) {
+                alt41=1;
+            }
+            else if ( (LA41_0==EOF||LA41_0==58) ) {
+                alt41=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 41, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt41) {
+                case 1 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:22: ( instrucciones )+
+                    {
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:22: ( instrucciones )+
+                    int cnt40=0;
+                    loop40:
+                    do {
+                        int alt40=2;
+                        int LA40_0 = input.LA(1);
+
+                        if ( (LA40_0==ALIASA||LA40_0==49||LA40_0==55) ) {
+                            alt40=1;
+                        }
+
+
+                        switch (alt40) {
+                    	case 1 :
+                    	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:23: instrucciones
+                    	    {
+                    	    pushFollow(FOLLOW_instrucciones_in_listInstrucciones1095);
+                    	    instrucciones();
+
+                    	    state._fsp--;
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt40 >= 1 ) break loop40;
+                                EarlyExitException eee =
+                                    new EarlyExitException(40, input);
+                                throw eee;
+                        }
+                        cnt40++;
+                    } while (true);
+
+
+                    }
+                    break;
+                case 2 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:41: 
+                    {
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
     // $ANTLR end "listInstrucciones"
 
 
 
     // $ANTLR start "instrucciones"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:1: instrucciones : ( asignacion | ciclo | condicion );
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:74:1: instrucciones : ( asignacion | ciclo | condicion );
     public final void instrucciones() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:16: ( asignacion | ciclo | condicion )
-            int alt43=3;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:74:16: ( asignacion | ciclo | condicion )
+            int alt42=3;
             switch ( input.LA(1) ) {
             case ALIASA:
                 {
-                alt43=1;
+                alt42=1;
+                }
+                break;
+            case 55:
+                {
+                alt42=2;
                 }
                 break;
             case 49:
                 {
-                alt43=2;
-                }
-                break;
-            case 45:
-                {
-                alt43=3;
+                alt42=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 43, 0, input);
+                    new NoViableAltException("", 42, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt43) {
+            switch (alt42) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:19: asignacion
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:74:19: asignacion
                     {
-                    pushFollow(FOLLOW_asignacion_in_instrucciones1030);
+                    pushFollow(FOLLOW_asignacion_in_instrucciones1109);
                     asignacion();
 
                     state._fsp--;
@@ -3050,9 +3046,9 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:32: ciclo
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:74:32: ciclo
                     {
-                    pushFollow(FOLLOW_ciclo_in_instrucciones1034);
+                    pushFollow(FOLLOW_ciclo_in_instrucciones1113);
                     ciclo();
 
                     state._fsp--;
@@ -3061,9 +3057,9 @@ public class mdParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:71:40: condicion
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:74:40: condicion
                     {
-                    pushFollow(FOLLOW_condicion_in_instrucciones1038);
+                    pushFollow(FOLLOW_condicion_in_instrucciones1117);
                     condicion();
 
                     state._fsp--;
@@ -3089,29 +3085,29 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "condicion"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:72:1: condicion : condicionP 'else' '{' listInstrucciones '}' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:75:1: condicion : condicionP 'else' '{' listInstrucciones '}' ;
     public final void condicion() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:72:12: ( condicionP 'else' '{' listInstrucciones '}' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:72:14: condicionP 'else' '{' listInstrucciones '}'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:75:12: ( condicionP 'else' '{' listInstrucciones '}' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:75:14: condicionP 'else' '{' listInstrucciones '}'
             {
-            pushFollow(FOLLOW_condicionP_in_condicion1046);
+            pushFollow(FOLLOW_condicionP_in_condicion1125);
             condicionP();
 
             state._fsp--;
 
 
-            match(input,44,FOLLOW_44_in_condicion1048); 
+            match(input,48,FOLLOW_48_in_condicion1127); 
 
-            match(input,50,FOLLOW_50_in_condicion1050); 
+            match(input,56,FOLLOW_56_in_condicion1129); 
 
-            pushFollow(FOLLOW_listInstrucciones_in_condicion1052);
+            pushFollow(FOLLOW_listInstrucciones_in_condicion1131);
             listInstrucciones();
 
             state._fsp--;
 
 
-            match(input,52,FOLLOW_52_in_condicion1054); 
+            match(input,58,FOLLOW_58_in_condicion1133); 
 
             }
 
@@ -3131,33 +3127,33 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "condicionP"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:1: condicionP : 'if' '(' expresion ')' '{' listInstrucciones '}' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:76:1: condicionP : 'if' '(' expresion ')' '{' listInstrucciones '}' ;
     public final void condicionP() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:13: ( 'if' '(' expresion ')' '{' listInstrucciones '}' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:73:15: 'if' '(' expresion ')' '{' listInstrucciones '}'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:76:13: ( 'if' '(' expresion ')' '{' listInstrucciones '}' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:76:15: 'if' '(' expresion ')' '{' listInstrucciones '}'
             {
-            match(input,45,FOLLOW_45_in_condicionP1062); 
+            match(input,49,FOLLOW_49_in_condicionP1141); 
 
-            match(input,20,FOLLOW_20_in_condicionP1064); 
+            match(input,24,FOLLOW_24_in_condicionP1143); 
 
-            pushFollow(FOLLOW_expresion_in_condicionP1066);
+            pushFollow(FOLLOW_expresion_in_condicionP1145);
             expresion();
 
             state._fsp--;
 
 
-            match(input,21,FOLLOW_21_in_condicionP1068); 
+            match(input,25,FOLLOW_25_in_condicionP1147); 
 
-            match(input,50,FOLLOW_50_in_condicionP1070); 
+            match(input,56,FOLLOW_56_in_condicionP1149); 
 
-            pushFollow(FOLLOW_listInstrucciones_in_condicionP1072);
+            pushFollow(FOLLOW_listInstrucciones_in_condicionP1151);
             listInstrucciones();
 
             state._fsp--;
 
 
-            match(input,52,FOLLOW_52_in_condicionP1074); 
+            match(input,58,FOLLOW_58_in_condicionP1153); 
 
             }
 
@@ -3177,33 +3173,33 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "ciclo"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:74:1: ciclo : 'while' '(' expresion ')' '{' listInstrucciones '}' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:77:1: ciclo : 'while' '(' expresion ')' '{' listInstrucciones '}' ;
     public final void ciclo() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:74:9: ( 'while' '(' expresion ')' '{' listInstrucciones '}' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:74:11: 'while' '(' expresion ')' '{' listInstrucciones '}'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:77:9: ( 'while' '(' expresion ')' '{' listInstrucciones '}' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:77:11: 'while' '(' expresion ')' '{' listInstrucciones '}'
             {
-            match(input,49,FOLLOW_49_in_ciclo1083); 
+            match(input,55,FOLLOW_55_in_ciclo1162); 
 
-            match(input,20,FOLLOW_20_in_ciclo1085); 
+            match(input,24,FOLLOW_24_in_ciclo1164); 
 
-            pushFollow(FOLLOW_expresion_in_ciclo1087);
+            pushFollow(FOLLOW_expresion_in_ciclo1166);
             expresion();
 
             state._fsp--;
 
 
-            match(input,21,FOLLOW_21_in_ciclo1089); 
+            match(input,25,FOLLOW_25_in_ciclo1168); 
 
-            match(input,50,FOLLOW_50_in_ciclo1091); 
+            match(input,56,FOLLOW_56_in_ciclo1170); 
 
-            pushFollow(FOLLOW_listInstrucciones_in_ciclo1093);
+            pushFollow(FOLLOW_listInstrucciones_in_ciclo1172);
             listInstrucciones();
 
             state._fsp--;
 
 
-            match(input,52,FOLLOW_52_in_ciclo1095); 
+            match(input,58,FOLLOW_58_in_ciclo1174); 
 
             }
 
@@ -3223,23 +3219,23 @@ public class mdParser extends Parser {
 
 
     // $ANTLR start "asignacion"
-    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:75:1: asignacion : ALIASA '~' expresion ';' ;
+    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:78:1: asignacion : ALIASA '~' expresion ';' ;
     public final void asignacion() throws RecognitionException {
         try {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:75:14: ( ALIASA '~' expresion ';' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:75:16: ALIASA '~' expresion ';'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:78:14: ( ALIASA '~' expresion ';' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:78:16: ALIASA '~' expresion ';'
             {
-            match(input,ALIASA,FOLLOW_ALIASA_in_asignacion1104); 
+            match(input,ALIASA,FOLLOW_ALIASA_in_asignacion1183); 
 
-            match(input,53,FOLLOW_53_in_asignacion1106); 
+            match(input,59,FOLLOW_59_in_asignacion1185); 
 
-            pushFollow(FOLLOW_expresion_in_asignacion1108);
+            pushFollow(FOLLOW_expresion_in_asignacion1187);
             expresion();
 
             state._fsp--;
 
 
-            match(input,35,FOLLOW_35_in_asignacion1110); 
+            match(input,40,FOLLOW_40_in_asignacion1189); 
 
             }
 
@@ -3261,193 +3257,197 @@ public class mdParser extends Parser {
 
  
 
-    public static final BitSet FOLLOW_md_in_prog21 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_prog23 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_listLengArchivo_in_md33 = new BitSet(new long[]{0x0000040000868002L});
-    public static final BitSet FOLLOW_listLengClases_in_md37 = new BitSet(new long[]{0x0000040000868002L});
-    public static final BitSet FOLLOW_listLengComandos_in_md41 = new BitSet(new long[]{0x0000040000868002L});
-    public static final BitSet FOLLOW_listLengFns_in_md45 = new BitSet(new long[]{0x0000040000868002L});
-    public static final BitSet FOLLOW_listLengApp_in_md49 = new BitSet(new long[]{0x0000040000868002L});
-    public static final BitSet FOLLOW_17_in_listLengArchivo97 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengArchivo99 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_listLengArchivo101 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengArchivo103 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_opcionesA_in_listLengArchivo105 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_listLengArchivo107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_opcionesA115 = new BitSet(new long[]{0x00100000380000C0L});
-    public static final BitSet FOLLOW_ubicacionA_in_opcionesA118 = new BitSet(new long[]{0x00100000000000C0L});
-    public static final BitSet FOLLOW_Fecha_in_opcionesA125 = new BitSet(new long[]{0x0010000000000080L});
-    public static final BitSet FOLLOW_Hora_in_opcionesA132 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_52_in_opcionesA138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_relativa_in_ubicacionA146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_absoluta_in_ubicacionA150 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_absoluta159 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_absoluta160 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_27_in_relativa170 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_relativa172 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_relativa173 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_28_in_relativa179 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_29_in_relativa181 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_relativa182 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_42_in_listLengClases294 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengClases296 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengClases299 = new BitSet(new long[]{0x0000000000000210L});
-    public static final BitSet FOLLOW_propiedad_in_listLengClases303 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_listLengClases305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_tripleta_in_propiedad315 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_LengTipo_in_tripleta325 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_tripleta327 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_tripleta329 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_53_in_tripleta331 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_expresion_in_tripleta333 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_tripleta335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_listLengComandos345 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_listLengComandos347 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_53_in_listLengComandos349 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengComandos351 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_listLengComandos353 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_53_in_listLengComandos355 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_UbicacionC_in_listLengComandos357 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_listLengComandos359 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_listLengApp383 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_Int_in_listLengApp385 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengApp389 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_46_in_listLengApp391 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_argumentoIN_in_listLengApp393 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_listLengApp395 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_listLengApp397 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_argumentoOUT_in_listLengApp399 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_listLengApp401 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_opcionesApp_in_listLengApp403 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_descripcionApp_in_listLengApp405 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_listLengApp407 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_archivo_in_argumentoIN415 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ALIASA_in_argumentoIN421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_archivo_in_argumentoIN425 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_argumentoIN_in_argumentoIN427 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ALIASA_in_argumentoIN433 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_argumentoIN_in_argumentoIN435 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ALIASA_in_archivo445 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_archivo447 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_archivo449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_archivo_in_argumentoOUT457 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ALIASA_in_argumentoOUT463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_opcionesApp472 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_opcionesApp474 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_opcionesApp_in_opcionesApp476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_opcionesApp480 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_opcionesApp482 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ALIASA_in_descripcionApp490 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_conjuncion_in_expresion503 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_expresionP_in_expresion506 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_expresionP518 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_conjuncion_in_expresionP520 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_expresionP_in_expresionP523 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_relacion_in_conjuncion535 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_conjuncionP_in_conjuncion538 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_conjuncionP550 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_relacion_in_conjuncionP552 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_conjuncionP_in_conjuncionP555 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_adicion_in_relacion567 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_relacionP_in_relacion570 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_relacionP582 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_adicion_in_relacionP584 = new BitSet(new long[]{0x0000003000000000L});
-    public static final BitSet FOLLOW_relacionP_in_relacionP587 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_relacionP592 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_adicion_in_relacionP594 = new BitSet(new long[]{0x0000011000000000L});
-    public static final BitSet FOLLOW_relacionP_in_relacionP597 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_relacionP602 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_adicion_in_relacionP604 = new BitSet(new long[]{0x0000021000000000L});
-    public static final BitSet FOLLOW_relacionP_in_relacionP607 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_relacionP612 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_adicion_in_relacionP614 = new BitSet(new long[]{0x0000009000000000L});
-    public static final BitSet FOLLOW_relacionP_in_relacionP617 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_relacionP627 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_adicion_in_relacionP629 = new BitSet(new long[]{0x0000001000002000L});
-    public static final BitSet FOLLOW_relacionP_in_relacionP632 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_relacionP637 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_adicion_in_relacionP639 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_relacionP_in_relacionP642 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_termino_in_adicion655 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_adicionP_in_adicion658 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_adicionP670 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_termino_in_adicionP672 = new BitSet(new long[]{0x0000000004800000L});
-    public static final BitSet FOLLOW_adicionP_in_adicionP675 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_adicionP681 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_termino_in_adicionP683 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_adicionP_in_adicionP686 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_negacion_in_termino699 = new BitSet(new long[]{0x0000000040400002L});
-    public static final BitSet FOLLOW_terminoP_in_termino702 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_terminoP714 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_negacion_in_terminoP716 = new BitSet(new long[]{0x0000000040400002L});
-    public static final BitSet FOLLOW_terminoP_in_terminoP719 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_terminoP727 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_negacion_in_terminoP729 = new BitSet(new long[]{0x0000000040400002L});
-    public static final BitSet FOLLOW_terminoP_in_terminoP732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_factor_in_negacion744 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_negacion748 = new BitSet(new long[]{0x00000400381007F0L});
-    public static final BitSet FOLLOW_factor_in_negacion749 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ALIASA_in_factor758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_tripleta_in_factor762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_factor766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_factor770 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_expresion_in_factor772 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_factor775 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_listLengFns786 = new BitSet(new long[]{0x00000400380005E0L});
-    public static final BitSet FOLLOW_literal_in_listLengFns788 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengFns790 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_listLengFns792 = new BitSet(new long[]{0x00000400380005E0L});
-    public static final BitSet FOLLOW_literal_in_listLengFns794 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengFns796 = new BitSet(new long[]{0x0000000002200000L});
-    public static final BitSet FOLLOW_25_in_listLengFns799 = new BitSet(new long[]{0x00000400380005E0L});
-    public static final BitSet FOLLOW_literal_in_listLengFns801 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_listLengFns803 = new BitSet(new long[]{0x0000000002200000L});
-    public static final BitSet FOLLOW_21_in_listLengFns808 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_50_in_listLengFns810 = new BitSet(new long[]{0x0002200000000010L});
-    public static final BitSet FOLLOW_instrucciones_in_listLengFns812 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_52_in_listLengFns814 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_listLengFns816 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Int_in_literal825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Bool_in_literal829 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Fecha_in_literal833 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Hora_in_literal837 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_file_in_literal841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_listLengClases_in_literal845 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_String_in_literal849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_relativa_in_file937 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_absoluta_in_file941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_listVariables_in_z978 = new BitSet(new long[]{0x0002200000000010L});
-    public static final BitSet FOLLOW_listInstrucciones_in_z980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_lengVar_in_listVariables992 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_LengTipo_in_lengVar1003 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ALIASA_in_lengVar1005 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_lengVar1007 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_instrucciones_in_listInstrucciones1016 = new BitSet(new long[]{0x0002200000000012L});
-    public static final BitSet FOLLOW_asignacion_in_instrucciones1030 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ciclo_in_instrucciones1034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_condicion_in_instrucciones1038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_condicionP_in_condicion1046 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_44_in_condicion1048 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_50_in_condicion1050 = new BitSet(new long[]{0x0012200000000010L});
-    public static final BitSet FOLLOW_listInstrucciones_in_condicion1052 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_52_in_condicion1054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_condicionP1062 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_condicionP1064 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_expresion_in_condicionP1066 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_condicionP1068 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_50_in_condicionP1070 = new BitSet(new long[]{0x0012200000000010L});
-    public static final BitSet FOLLOW_listInstrucciones_in_condicionP1072 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_52_in_condicionP1074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ciclo1083 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ciclo1085 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_expresion_in_ciclo1087 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ciclo1089 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_50_in_ciclo1091 = new BitSet(new long[]{0x0012200000000010L});
-    public static final BitSet FOLLOW_listInstrucciones_in_ciclo1093 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_52_in_ciclo1095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ALIASA_in_asignacion1104 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_53_in_asignacion1106 = new BitSet(new long[]{0x00000400381017F0L});
-    public static final BitSet FOLLOW_expresion_in_asignacion1108 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_asignacion1110 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_md_in_prog35 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_prog37 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_comments_in_md48 = new BitSet(new long[]{0x0020000810680002L});
+    public static final BitSet FOLLOW_listLengArchivo_in_md52 = new BitSet(new long[]{0x0020000810680002L});
+    public static final BitSet FOLLOW_listLengClases_in_md56 = new BitSet(new long[]{0x0020000810680002L});
+    public static final BitSet FOLLOW_listLengComandos_in_md60 = new BitSet(new long[]{0x0020000810680002L});
+    public static final BitSet FOLLOW_listLengFns_in_md64 = new BitSet(new long[]{0x0020000810680002L});
+    public static final BitSet FOLLOW_listLengApp_in_md68 = new BitSet(new long[]{0x0020000810680002L});
+    public static final BitSet FOLLOW_35_in_comments115 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_Comentarios_in_comments117 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_comments119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_listLengArchivo130 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_listLengArchivo132 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_listLengArchivo134 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_listLengArchivo136 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_opcionesA_in_listLengArchivo138 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_listLengArchivo140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_opcionesA148 = new BitSet(new long[]{0x0400000700000180L});
+    public static final BitSet FOLLOW_ubicacionA_in_opcionesA151 = new BitSet(new long[]{0x0400000000000180L});
+    public static final BitSet FOLLOW_Fecha_in_opcionesA158 = new BitSet(new long[]{0x0400000000000100L});
+    public static final BitSet FOLLOW_Hora_in_opcionesA165 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_opcionesA171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_relativa_in_ubicacionA179 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ubicacionA184 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_ubicacionA185 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_32_in_relativa196 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_relativa198 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_relativa199 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_33_in_relativa205 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_relativa207 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_relativa208 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_53_in_listLengClases320 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_listLengClases322 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_listLengClases324 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_Comentarios_in_listLengClases325 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_listLengClases326 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_propiedad_in_listLengClases328 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_54_in_listLengClases330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_tripleta_in_propiedad340 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_LengTipo_in_tripleta350 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_39_in_tripleta352 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_tripleta354 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_tripleta356 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_expresion_in_tripleta358 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_tripleta360 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_listLengComandos370 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_51_in_listLengComandos372 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_listLengComandos374 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_listLengComandos376 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_47_in_listLengComandos378 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_listLengComandos380 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_UbicacionC_in_listLengComandos382 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_29_in_listLengComandos384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_listLengApp408 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_Int_in_listLengApp410 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_listLengApp414 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_50_in_listLengApp416 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_argumentoIN_in_listLengApp418 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_listLengApp420 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_52_in_listLengApp422 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_argumentoOUT_in_listLengApp424 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_listLengApp426 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_opcionesApp_in_listLengApp428 = new BitSet(new long[]{0x0000000000040010L});
+    public static final BitSet FOLLOW_descripcionApp_in_listLengApp430 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_listLengApp432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_archivo_in_argumentoIN440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ALIASA_in_argumentoIN446 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_archivo_in_argumentoIN450 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_argumentoIN_in_argumentoIN452 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ALIASA_in_argumentoIN458 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_argumentoIN_in_argumentoIN460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ALIASA_in_archivo470 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_archivo472 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_archivo474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_archivo_in_argumentoOUT482 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ALIASA_in_argumentoOUT488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_opcionesApp497 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_opcionesApp499 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_opcionesApp_in_opcionesApp501 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_opcionesApp505 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_opcionesApp507 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ALIASA_in_descripcionApp515 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_conjuncion_in_expresion528 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_expresionP_in_expresion531 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_expresionP543 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_conjuncion_in_expresionP545 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_expresionP_in_expresionP548 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_relacion_in_conjuncion560 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_conjuncionP_in_conjuncion563 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_conjuncionP575 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_relacion_in_conjuncionP577 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_conjuncionP_in_conjuncionP580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_adicion_in_relacion592 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_relacionP_in_relacion595 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_relacionP607 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_adicion_in_relacionP609 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_relacionP_in_relacionP612 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_relacionP617 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_adicion_in_relacionP619 = new BitSet(new long[]{0x0000220000000000L});
+    public static final BitSet FOLLOW_relacionP_in_relacionP622 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_45_in_relacionP627 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_adicion_in_relacionP629 = new BitSet(new long[]{0x0000420000000000L});
+    public static final BitSet FOLLOW_relacionP_in_relacionP632 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_46_in_relacionP637 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_adicion_in_relacionP639 = new BitSet(new long[]{0x0000120000000000L});
+    public static final BitSet FOLLOW_relacionP_in_relacionP642 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_44_in_relacionP652 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_adicion_in_relacionP654 = new BitSet(new long[]{0x0000020000010000L});
+    public static final BitSet FOLLOW_relacionP_in_relacionP657 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_relacionP662 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_adicion_in_relacionP664 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_relacionP_in_relacionP667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_termino_in_adicion680 = new BitSet(new long[]{0x0000000090000002L});
+    public static final BitSet FOLLOW_adicionP_in_adicion683 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_adicionP695 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_termino_in_adicionP697 = new BitSet(new long[]{0x0000000090000002L});
+    public static final BitSet FOLLOW_adicionP_in_adicionP700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_adicionP708 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_termino_in_adicionP710 = new BitSet(new long[]{0x0000000090000002L});
+    public static final BitSet FOLLOW_adicionP_in_adicionP713 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_negacion_in_termino726 = new BitSet(new long[]{0x0000001004000002L});
+    public static final BitSet FOLLOW_terminoP_in_termino729 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_terminoP741 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_negacion_in_terminoP743 = new BitSet(new long[]{0x0000001004000002L});
+    public static final BitSet FOLLOW_terminoP_in_terminoP746 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_terminoP754 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_negacion_in_terminoP756 = new BitSet(new long[]{0x0000001004000002L});
+    public static final BitSet FOLLOW_terminoP_in_terminoP759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_factor_in_negacion771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_negacion775 = new BitSet(new long[]{0x00200007010017B0L});
+    public static final BitSet FOLLOW_factor_in_negacion776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ALIASA_in_factor785 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_tripleta_in_factor789 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_factor793 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_factor797 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_expresion_in_factor799 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_factor802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_listLengFns813 = new BitSet(new long[]{0x00200007000013A0L});
+    public static final BitSet FOLLOW_literal_in_listLengFns815 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_listLengFns817 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_listLengFns819 = new BitSet(new long[]{0x00200007000013A0L});
+    public static final BitSet FOLLOW_literal_in_listLengFns821 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_listLengFns823 = new BitSet(new long[]{0x0000000042000000L});
+    public static final BitSet FOLLOW_30_in_listLengFns826 = new BitSet(new long[]{0x00200007000013A0L});
+    public static final BitSet FOLLOW_literal_in_listLengFns828 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_listLengFns830 = new BitSet(new long[]{0x0000000042000000L});
+    public static final BitSet FOLLOW_25_in_listLengFns835 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_56_in_listLengFns837 = new BitSet(new long[]{0x0082000000000010L});
+    public static final BitSet FOLLOW_instrucciones_in_listLengFns839 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_listLengFns841 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_listLengFns843 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Int_in_literal852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Bool_in_literal856 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Fecha_in_literal860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Hora_in_literal864 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_file_in_literal868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_listLengClases_in_literal872 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_String_in_literal876 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ubicacionA_in_file1020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_listVariables_in_z1057 = new BitSet(new long[]{0x0082000000000010L});
+    public static final BitSet FOLLOW_listInstrucciones_in_z1059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_lengVar_in_listVariables1071 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_LengTipo_in_lengVar1082 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ALIASA_in_lengVar1084 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_lengVar1086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_instrucciones_in_listInstrucciones1095 = new BitSet(new long[]{0x0082000000000012L});
+    public static final BitSet FOLLOW_asignacion_in_instrucciones1109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ciclo_in_instrucciones1113 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_condicion_in_instrucciones1117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_condicionP_in_condicion1125 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_48_in_condicion1127 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_56_in_condicion1129 = new BitSet(new long[]{0x0482000000000010L});
+    public static final BitSet FOLLOW_listInstrucciones_in_condicion1131 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_condicion1133 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_condicionP1141 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_condicionP1143 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_expresion_in_condicionP1145 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_condicionP1147 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_56_in_condicionP1149 = new BitSet(new long[]{0x0482000000000010L});
+    public static final BitSet FOLLOW_listInstrucciones_in_condicionP1151 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_condicionP1153 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ciclo1162 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ciclo1164 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_expresion_in_ciclo1166 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ciclo1168 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_56_in_ciclo1170 = new BitSet(new long[]{0x0482000000000010L});
+    public static final BitSet FOLLOW_listInstrucciones_in_ciclo1172 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_ciclo1174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ALIASA_in_asignacion1183 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_asignacion1185 = new BitSet(new long[]{0x00200007010097B0L});
+    public static final BitSet FOLLOW_expresion_in_asignacion1187 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_asignacion1189 = new BitSet(new long[]{0x0000000000000002L});
 
 }

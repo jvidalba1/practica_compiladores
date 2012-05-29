@@ -1,1 +1,5 @@
-$a.a{h1/11/111122:22:22}$$
+/* esto es un leng de archivo */
+$ mateo.m{ 33/33/3333 22:22:22 } $$
+/* esto es un leng de clase */
+% fiu" descripcion " int: tri1~ 2*3 , int: tri2~ 2*3 , %%
+/* esto es un leng de comandos */

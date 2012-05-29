@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g 2012-05-19 20:52:10
+// $ANTLR 3.4 /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g 2012-05-29 10:47:43
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -8,9 +8,6 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class mdLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__12=12;
-    public static final int T__13=13;
-    public static final int T__14=14;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
@@ -50,14 +47,23 @@ public class mdLexer extends Lexer {
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__53=53;
+    public static final int T__54=54;
+    public static final int T__55=55;
+    public static final int T__56=56;
+    public static final int T__57=57;
+    public static final int T__58=58;
+    public static final int T__59=59;
     public static final int ALIASA=4;
     public static final int Bool=5;
-    public static final int Fecha=6;
-    public static final int Hora=7;
-    public static final int Int=8;
-    public static final int LengTipo=9;
-    public static final int String=10;
-    public static final int UbicacionC=11;
+    public static final int Comentarios=6;
+    public static final int Fecha=7;
+    public static final int Hora=8;
+    public static final int Int=9;
+    public static final int LengTipo=10;
+    public static final int NEWLINE=11;
+    public static final int String=12;
+    public static final int UbicacionC=13;
+    public static final int WS=14;
 
     // delegates
     // delegators
@@ -74,82 +80,15 @@ public class mdLexer extends Lexer {
     }
     public String getGrammarFileName() { return "/home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g"; }
 
-    // $ANTLR start "T__12"
-    public final void mT__12() throws RecognitionException {
-        try {
-            int _type = T__12;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:2:7: ( '!' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:2:9: '!'
-            {
-            match('!'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__12"
-
-    // $ANTLR start "T__13"
-    public final void mT__13() throws RecognitionException {
-        try {
-            int _type = T__13;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:3:7: ( '!=' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:3:9: '!='
-            {
-            match("!="); 
-
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__13"
-
-    // $ANTLR start "T__14"
-    public final void mT__14() throws RecognitionException {
-        try {
-            int _type = T__14;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:7: ( '##' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:9: '##'
-            {
-            match("##"); 
-
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__14"
-
     // $ANTLR start "T__15"
     public final void mT__15() throws RecognitionException {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:5:7: ( '#' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:5:9: '#'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:2:7: ( '!' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:2:9: '!'
             {
-            match('#'); 
+            match('!'); 
 
             }
 
@@ -167,10 +106,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:6:7: ( '$$' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:6:9: '$$'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:3:7: ( '!=' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:3:9: '!='
             {
-            match("$$"); 
+            match("!="); 
 
 
 
@@ -190,10 +129,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:7:7: ( '$' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:7:9: '$'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:7: ( '\"' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:4:9: '\"'
             {
-            match('$'); 
+            match('\"'); 
 
             }
 
@@ -211,10 +150,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:7: ( '%=' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:9: '%='
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:5:7: ( '##' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:5:9: '##'
             {
-            match("%="); 
+            match("##"); 
 
 
 
@@ -234,12 +173,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:9:7: ( '&&' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:9:9: '&&'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:6:7: ( '#' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:6:9: '#'
             {
-            match("&&"); 
-
-
+            match('#'); 
 
             }
 
@@ -257,10 +194,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:10:7: ( '(' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:10:9: '('
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:7:7: ( '$$' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:7:9: '$$'
             {
-            match('('); 
+            match("$$"); 
+
+
 
             }
 
@@ -278,10 +217,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:11:7: ( ')' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:11:9: ')'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:7: ( '$' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:9: '$'
             {
-            match(')'); 
+            match('$'); 
 
             }
 
@@ -299,10 +238,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:12:7: ( '*' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:12:9: '*'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:9:7: ( '%=' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:9:9: '%='
             {
-            match('*'); 
+            match("%="); 
+
+
 
             }
 
@@ -320,10 +261,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:13:7: ( '+' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:13:9: '+'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:10:7: ( '&&' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:10:9: '&&'
             {
-            match('+'); 
+            match("&&"); 
+
+
 
             }
 
@@ -341,12 +284,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:7: ( '++' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:9: '++'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:11:7: ( '(' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:11:9: '('
             {
-            match("++"); 
-
-
+            match('('); 
 
             }
 
@@ -364,10 +305,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:7: ( ',' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:9: ','
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:12:7: ( ')' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:12:9: ')'
             {
-            match(','); 
+            match(')'); 
 
             }
 
@@ -385,10 +326,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:7: ( '-' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:9: '-'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:13:7: ( '*' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:13:9: '*'
             {
-            match('-'); 
+            match('*'); 
 
             }
 
@@ -406,10 +347,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:7: ( '.' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:9: '.'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:7: ( '*/' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:14:9: '*/'
             {
-            match('.'); 
+            match("*/"); 
+
+
 
             }
 
@@ -427,12 +370,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:18:7: ( '..' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:18:9: '..'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:7: ( '+' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:15:9: '+'
             {
-            match(".."); 
-
-
+            match('+'); 
 
             }
 
@@ -450,10 +391,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:7: ( '/' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:9: '/'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:7: ( '++' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:16:9: '++'
             {
-            match('/'); 
+            match("++"); 
+
+
 
             }
 
@@ -471,12 +414,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:20:7: ( '//' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:20:9: '//'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:7: ( ',' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:17:9: ','
             {
-            match("//"); 
-
-
+            match(','); 
 
             }
 
@@ -494,12 +435,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:21:7: ( '/class' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:21:9: '/class'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:18:7: ( '-' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:18:9: '-'
             {
-            match("/class"); 
-
-
+            match('-'); 
 
             }
 
@@ -517,12 +456,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:22:7: ( '/in' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:22:9: '/in'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:7: ( '.' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:19:9: '.'
             {
-            match("/in"); 
-
-
+            match('.'); 
 
             }
 
@@ -540,10 +477,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:23:7: ( '/out' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:23:9: '/out'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:20:7: ( '..' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:20:9: '..'
             {
-            match("/out"); 
+            match(".."); 
 
 
 
@@ -563,10 +500,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:7: ( ':' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:9: ':'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:21:7: ( '/' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:21:9: '/'
             {
-            match(':'); 
+            match('/'); 
 
             }
 
@@ -584,10 +521,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:25:7: ( ';' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:25:9: ';'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:22:7: ( '/*' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:22:9: '/*'
             {
-            match(';'); 
+            match("/*"); 
+
+
 
             }
 
@@ -605,10 +544,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:7: ( '<' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:9: '<'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:23:7: ( '//' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:23:9: '//'
             {
-            match('<'); 
+            match("//"); 
+
+
 
             }
 
@@ -626,10 +567,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:27:7: ( '<=' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:27:9: '<='
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:7: ( '/in' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:24:9: '/in'
             {
-            match("<="); 
+            match("/in"); 
 
 
 
@@ -649,10 +590,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:7: ( '=%' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:9: '=%'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:25:7: ( '/out' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:25:9: '/out'
             {
-            match("=%"); 
+            match("/out"); 
 
 
 
@@ -672,12 +613,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:29:7: ( '==' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:29:9: '=='
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:7: ( ':' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:26:9: ':'
             {
-            match("=="); 
-
-
+            match(':'); 
 
             }
 
@@ -695,10 +634,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:30:7: ( '>' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:30:9: '>'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:27:7: ( ';' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:27:9: ';'
             {
-            match('>'); 
+            match(';'); 
 
             }
 
@@ -716,12 +655,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:31:7: ( '>=' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:31:9: '>='
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:7: ( '<' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:28:9: '<'
             {
-            match(">="); 
-
-
+            match('<'); 
 
             }
 
@@ -739,10 +676,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:32:7: ( 'class' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:32:9: 'class'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:29:7: ( '<=' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:29:9: '<='
             {
-            match("class"); 
+            match("<="); 
 
 
 
@@ -762,10 +699,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:33:7: ( 'dir' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:33:9: 'dir'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:30:7: ( '=%' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:30:9: '=%'
             {
-            match("dir"); 
+            match("=%"); 
 
 
 
@@ -785,10 +722,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:34:7: ( 'else' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:34:9: 'else'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:31:7: ( '==' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:31:9: '=='
             {
-            match("else"); 
+            match("=="); 
 
 
 
@@ -808,12 +745,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:35:7: ( 'if' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:35:9: 'if'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:32:7: ( '>' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:32:9: '>'
             {
-            match("if"); 
-
-
+            match('>'); 
 
             }
 
@@ -831,10 +766,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:36:7: ( 'in' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:36:9: 'in'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:33:7: ( '>=' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:33:9: '>='
             {
-            match("in"); 
+            match(">="); 
 
 
 
@@ -854,10 +789,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:7: ( 'nombre' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:9: 'nombre'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:34:7: ( 'dir' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:34:9: 'dir'
             {
-            match("nombre"); 
+            match("dir"); 
 
 
 
@@ -877,10 +812,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:7: ( 'out' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:9: 'out'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:35:7: ( 'else' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:35:9: 'else'
             {
-            match("out"); 
+            match("else"); 
 
 
 
@@ -900,10 +835,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:7: ( 'while' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:9: 'while'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:36:7: ( 'if' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:36:9: 'if'
             {
-            match("while"); 
+            match("if"); 
 
 
 
@@ -923,10 +858,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:7: ( '{' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:9: '{'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:7: ( 'in' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:9: 'in'
             {
-            match('{'); 
+            match("in"); 
+
+
 
             }
 
@@ -944,10 +881,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:7: ( '||' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:9: '||'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:7: ( 'nombre' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:38:9: 'nombre'
             {
-            match("||"); 
+            match("nombre"); 
 
 
 
@@ -967,10 +904,12 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:42:7: ( '}' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:42:9: '}'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:7: ( 'out' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:39:9: 'out'
             {
-            match('}'); 
+            match("out"); 
+
+
 
             }
 
@@ -988,10 +927,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:43:7: ( '~' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:43:9: '~'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:7: ( 's' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:40:9: 's'
             {
-            match('~'); 
+            match('s'); 
 
             }
 
@@ -1004,12 +943,144 @@ public class mdLexer extends Lexer {
     }
     // $ANTLR end "T__53"
 
+    // $ANTLR start "T__54"
+    public final void mT__54() throws RecognitionException {
+        try {
+            int _type = T__54;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:7: ( 'ss' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:41:9: 'ss'
+            {
+            match("ss"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__54"
+
+    // $ANTLR start "T__55"
+    public final void mT__55() throws RecognitionException {
+        try {
+            int _type = T__55;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:42:7: ( 'while' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:42:9: 'while'
+            {
+            match("while"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__55"
+
+    // $ANTLR start "T__56"
+    public final void mT__56() throws RecognitionException {
+        try {
+            int _type = T__56;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:43:7: ( '{' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:43:9: '{'
+            {
+            match('{'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__56"
+
+    // $ANTLR start "T__57"
+    public final void mT__57() throws RecognitionException {
+        try {
+            int _type = T__57;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:44:7: ( '||' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:44:9: '||'
+            {
+            match("||"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__57"
+
+    // $ANTLR start "T__58"
+    public final void mT__58() throws RecognitionException {
+        try {
+            int _type = T__58;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:45:7: ( '}' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:45:9: '}'
+            {
+            match('}'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__58"
+
+    // $ANTLR start "T__59"
+    public final void mT__59() throws RecognitionException {
+        try {
+            int _type = T__59;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:7: ( '~' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:46:9: '~'
+            {
+            match('~'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__59"
+
     // $ANTLR start "LengTipo"
     public final void mLengTipo() throws RecognitionException {
         try {
             int _type = LengTipo;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:10: ( 'int' | 'bool' | 'date' | 'hour' | 'file' | 'class' | 'string' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:10: ( 'int' | 'bool' | 'date' | 'hour' | 'file' | 'class' | 'string' )
             int alt1=7;
             switch ( input.LA(1) ) {
             case 'i':
@@ -1057,7 +1128,7 @@ public class mdLexer extends Lexer {
 
             switch (alt1) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:12: 'int'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:12: 'int'
                     {
                     match("int"); 
 
@@ -1066,7 +1137,7 @@ public class mdLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:20: 'bool'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:20: 'bool'
                     {
                     match("bool"); 
 
@@ -1075,7 +1146,7 @@ public class mdLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:29: 'date'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:29: 'date'
                     {
                     match("date"); 
 
@@ -1084,7 +1155,7 @@ public class mdLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:38: 'hour'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:38: 'hour'
                     {
                     match("hour"); 
 
@@ -1093,7 +1164,7 @@ public class mdLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:47: 'file'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:47: 'file'
                     {
                     match("file"); 
 
@@ -1102,7 +1173,7 @@ public class mdLexer extends Lexer {
                     }
                     break;
                 case 6 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:56: 'class'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:56: 'class'
                     {
                     match("class"); 
 
@@ -1111,7 +1182,7 @@ public class mdLexer extends Lexer {
                     }
                     break;
                 case 7 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:37:66: 'string'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:8:66: 'string'
                     {
                     match("string"); 
 
@@ -1135,11 +1206,11 @@ public class mdLexer extends Lexer {
         try {
             int _type = Fecha;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:9: ( ( ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:11: ( ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:21:9: ( ( ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:21:11: ( ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) )
             {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:11: ( ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:48:12: ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:21:11: ( ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:21:12: ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) '/' ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' )
             {
             if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
                 input.consume();
@@ -1244,11 +1315,11 @@ public class mdLexer extends Lexer {
         try {
             int _type = Hora;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:8: ( ( ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:10: ( ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:22:8: ( ( ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:22:10: ( ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) )
             {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:10: ( ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:49:11: ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:22:10: ( ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:22:11: ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' ) ':' ( '0' .. '9' ) ( '0' .. '9' )
             {
             if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
                 input.consume();
@@ -1333,10 +1404,10 @@ public class mdLexer extends Lexer {
         try {
             int _type = UbicacionC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:13: ( ( '/' ALIASA )+ '/' )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:15: ( '/' ALIASA )+ '/'
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:34:13: ( ( '/' ALIASA )+ '/' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:34:15: ( '/' ALIASA )+ '/'
             {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:15: ( '/' ALIASA )+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:34:15: ( '/' ALIASA )+
             int cnt2=0;
             loop2:
             do {
@@ -1356,7 +1427,7 @@ public class mdLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:61:16: '/' ALIASA
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:34:16: '/' ALIASA
             	    {
             	    match('/'); 
 
@@ -1394,8 +1465,8 @@ public class mdLexer extends Lexer {
         try {
             int _type = Int;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:91:7: ( ( '1' .. '9' ) ( '0' .. '9' )* )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:91:9: ( '1' .. '9' ) ( '0' .. '9' )*
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:64:7: ( ( '1' .. '9' ) ( '0' .. '9' )* )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:64:9: ( '1' .. '9' ) ( '0' .. '9' )*
             {
             if ( (input.LA(1) >= '1' && input.LA(1) <= '9') ) {
                 input.consume();
@@ -1407,7 +1478,7 @@ public class mdLexer extends Lexer {
             }
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:91:19: ( '0' .. '9' )*
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:64:19: ( '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -1457,7 +1528,7 @@ public class mdLexer extends Lexer {
         try {
             int _type = Bool;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:92:8: ( 'true' | 'false' )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:65:8: ( 'true' | 'false' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1476,7 +1547,7 @@ public class mdLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:92:10: 'true'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:65:10: 'true'
                     {
                     match("true"); 
 
@@ -1485,7 +1556,7 @@ public class mdLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:92:19: 'false'
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:65:19: 'false'
                     {
                     match("false"); 
 
@@ -1509,8 +1580,8 @@ public class mdLexer extends Lexer {
         try {
             int _type = ALIASA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:93:10: ( ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) ) ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )* )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:93:12: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) ) ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )*
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:66:10: ( ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) ) ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )* )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:66:12: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) ) ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -1522,7 +1593,7 @@ public class mdLexer extends Lexer {
             }
 
 
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:93:37: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )*
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:66:37: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )*
             loop5:
             do {
                 int alt5=2;
@@ -1567,21 +1638,31 @@ public class mdLexer extends Lexer {
     }
     // $ANTLR end "ALIASA"
 
-    // $ANTLR start "String"
-    public final void mString() throws RecognitionException {
+    // $ANTLR start "Comentarios"
+    public final void mComentarios() throws RecognitionException {
         try {
-            int _type = String;
+            int _type = Comentarios;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:95:10: ( ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )* )
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:95:12: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )*
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:67:14: ( ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) ) ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | ( ' ' | '\\t' ) )* )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:67:16: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) ) ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | ( ' ' | '\\t' ) )*
             {
-            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:95:12: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )*
+            if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+                input.consume();
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;
+            }
+
+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:67:42: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | ( ' ' | '\\t' ) )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( ((LA6_0 >= '0' && LA6_0 <= '9')||(LA6_0 >= 'A' && LA6_0 <= 'Z')||(LA6_0 >= 'a' && LA6_0 <= 'z')) ) {
+                if ( (LA6_0=='\t'||LA6_0==' '||(LA6_0 >= '0' && LA6_0 <= '9')||(LA6_0 >= 'A' && LA6_0 <= 'Z')||(LA6_0 >= 'a' && LA6_0 <= 'z')) ) {
                     alt6=1;
                 }
 
@@ -1590,7 +1671,7 @@ public class mdLexer extends Lexer {
             	case 1 :
             	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:
             	    {
-            	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+            	    if ( input.LA(1)=='\t'||input.LA(1)==' '||(input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
             	    }
             	    else {
@@ -1618,409 +1699,641 @@ public class mdLexer extends Lexer {
         	// do for sure before leaving
         }
     }
+    // $ANTLR end "Comentarios"
+
+    // $ANTLR start "String"
+    public final void mString() throws RecognitionException {
+        try {
+            int _type = String;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:69:10: ( ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )* )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:69:12: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )*
+            {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:69:12: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( ((LA7_0 >= '0' && LA7_0 <= '9')||(LA7_0 >= 'A' && LA7_0 <= 'Z')||(LA7_0 >= 'a' && LA7_0 <= 'z')) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:
+            	    {
+            	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+            	        input.consume();
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
     // $ANTLR end "String"
 
+    // $ANTLR start "NEWLINE"
+    public final void mNEWLINE() throws RecognitionException {
+        try {
+            int _type = NEWLINE;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:84:17: ( ( '\\r' )? ( '\\n' )+ )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:84:25: ( '\\r' )? ( '\\n' )+
+            {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:84:25: ( '\\r' )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0=='\r') ) {
+                alt8=1;
+            }
+            switch (alt8) {
+                case 1 :
+                    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:84:25: '\\r'
+                    {
+                    match('\r'); 
+
+                    }
+                    break;
+
+            }
+
+
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:84:31: ( '\\n' )+
+            int cnt9=0;
+            loop9:
+            do {
+                int alt9=2;
+                int LA9_0 = input.LA(1);
+
+                if ( (LA9_0=='\n') ) {
+                    alt9=1;
+                }
+
+
+                switch (alt9) {
+            	case 1 :
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:84:31: '\\n'
+            	    {
+            	    match('\n'); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt9 >= 1 ) break loop9;
+                        EarlyExitException eee =
+                            new EarlyExitException(9, input);
+                        throw eee;
+                }
+                cnt9++;
+            } while (true);
+
+
+            skip();
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "NEWLINE"
+
+    // $ANTLR start "WS"
+    public final void mWS() throws RecognitionException {
+        try {
+            int _type = WS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:86:17: ( ( ' ' | '\\t' )+ )
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:86:25: ( ' ' | '\\t' )+
+            {
+            // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:86:25: ( ' ' | '\\t' )+
+            int cnt10=0;
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
+
+                if ( (LA10_0=='\t'||LA10_0==' ') ) {
+                    alt10=1;
+                }
+
+
+                switch (alt10) {
+            	case 1 :
+            	    // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:
+            	    {
+            	    if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
+            	        input.consume();
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt10 >= 1 ) break loop10;
+                        EarlyExitException eee =
+                            new EarlyExitException(10, input);
+                        throw eee;
+                }
+                cnt10++;
+            } while (true);
+
+
+            skip();
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "WS"
+
     public void mTokens() throws RecognitionException {
-        // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | LengTipo | Fecha | Hora | UbicacionC | Int | Bool | ALIASA | String )
-        int alt7=50;
-        alt7 = dfa7.predict(input);
-        switch (alt7) {
+        // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:8: ( T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | LengTipo | Fecha | Hora | UbicacionC | Int | Bool | ALIASA | Comentarios | String | NEWLINE | WS )
+        int alt11=56;
+        alt11 = dfa11.predict(input);
+        switch (alt11) {
             case 1 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:10: T__12
-                {
-                mT__12(); 
-
-
-                }
-                break;
-            case 2 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:16: T__13
-                {
-                mT__13(); 
-
-
-                }
-                break;
-            case 3 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:22: T__14
-                {
-                mT__14(); 
-
-
-                }
-                break;
-            case 4 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:28: T__15
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:10: T__15
                 {
                 mT__15(); 
 
 
                 }
                 break;
-            case 5 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:34: T__16
+            case 2 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:16: T__16
                 {
                 mT__16(); 
 
 
                 }
                 break;
-            case 6 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:40: T__17
+            case 3 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:22: T__17
                 {
                 mT__17(); 
 
 
                 }
                 break;
-            case 7 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:46: T__18
+            case 4 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:28: T__18
                 {
                 mT__18(); 
 
 
                 }
                 break;
-            case 8 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:52: T__19
+            case 5 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:34: T__19
                 {
                 mT__19(); 
 
 
                 }
                 break;
-            case 9 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:58: T__20
+            case 6 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:40: T__20
                 {
                 mT__20(); 
 
 
                 }
                 break;
-            case 10 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:64: T__21
+            case 7 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:46: T__21
                 {
                 mT__21(); 
 
 
                 }
                 break;
-            case 11 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:70: T__22
+            case 8 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:52: T__22
                 {
                 mT__22(); 
 
 
                 }
                 break;
-            case 12 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:76: T__23
+            case 9 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:58: T__23
                 {
                 mT__23(); 
 
 
                 }
                 break;
-            case 13 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:82: T__24
+            case 10 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:64: T__24
                 {
                 mT__24(); 
 
 
                 }
                 break;
-            case 14 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:88: T__25
+            case 11 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:70: T__25
                 {
                 mT__25(); 
 
 
                 }
                 break;
-            case 15 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:94: T__26
+            case 12 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:76: T__26
                 {
                 mT__26(); 
 
 
                 }
                 break;
-            case 16 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:100: T__27
+            case 13 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:82: T__27
                 {
                 mT__27(); 
 
 
                 }
                 break;
-            case 17 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:106: T__28
+            case 14 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:88: T__28
                 {
                 mT__28(); 
 
 
                 }
                 break;
-            case 18 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:112: T__29
+            case 15 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:94: T__29
                 {
                 mT__29(); 
 
 
                 }
                 break;
-            case 19 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:118: T__30
+            case 16 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:100: T__30
                 {
                 mT__30(); 
 
 
                 }
                 break;
-            case 20 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:124: T__31
+            case 17 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:106: T__31
                 {
                 mT__31(); 
 
 
                 }
                 break;
-            case 21 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:130: T__32
+            case 18 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:112: T__32
                 {
                 mT__32(); 
 
 
                 }
                 break;
-            case 22 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:136: T__33
+            case 19 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:118: T__33
                 {
                 mT__33(); 
 
 
                 }
                 break;
-            case 23 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:142: T__34
+            case 20 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:124: T__34
                 {
                 mT__34(); 
 
 
                 }
                 break;
-            case 24 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:148: T__35
+            case 21 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:130: T__35
                 {
                 mT__35(); 
 
 
                 }
                 break;
-            case 25 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:154: T__36
+            case 22 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:136: T__36
                 {
                 mT__36(); 
 
 
                 }
                 break;
-            case 26 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:160: T__37
+            case 23 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:142: T__37
                 {
                 mT__37(); 
 
 
                 }
                 break;
-            case 27 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:166: T__38
+            case 24 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:148: T__38
                 {
                 mT__38(); 
 
 
                 }
                 break;
-            case 28 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:172: T__39
+            case 25 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:154: T__39
                 {
                 mT__39(); 
 
 
                 }
                 break;
-            case 29 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:178: T__40
+            case 26 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:160: T__40
                 {
                 mT__40(); 
 
 
                 }
                 break;
-            case 30 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:184: T__41
+            case 27 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:166: T__41
                 {
                 mT__41(); 
 
 
                 }
                 break;
-            case 31 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:190: T__42
+            case 28 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:172: T__42
                 {
                 mT__42(); 
 
 
                 }
                 break;
-            case 32 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:196: T__43
+            case 29 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:178: T__43
                 {
                 mT__43(); 
 
 
                 }
                 break;
-            case 33 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:202: T__44
+            case 30 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:184: T__44
                 {
                 mT__44(); 
 
 
                 }
                 break;
-            case 34 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:208: T__45
+            case 31 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:190: T__45
                 {
                 mT__45(); 
 
 
                 }
                 break;
-            case 35 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:214: T__46
+            case 32 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:196: T__46
                 {
                 mT__46(); 
 
 
                 }
                 break;
-            case 36 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:220: T__47
+            case 33 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:202: T__47
                 {
                 mT__47(); 
 
 
                 }
                 break;
-            case 37 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:226: T__48
+            case 34 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:208: T__48
                 {
                 mT__48(); 
 
 
                 }
                 break;
-            case 38 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:232: T__49
+            case 35 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:214: T__49
                 {
                 mT__49(); 
 
 
                 }
                 break;
-            case 39 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:238: T__50
+            case 36 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:220: T__50
                 {
                 mT__50(); 
 
 
                 }
                 break;
-            case 40 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:244: T__51
+            case 37 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:226: T__51
                 {
                 mT__51(); 
 
 
                 }
                 break;
-            case 41 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:250: T__52
+            case 38 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:232: T__52
                 {
                 mT__52(); 
 
 
                 }
                 break;
-            case 42 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:256: T__53
+            case 39 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:238: T__53
                 {
                 mT__53(); 
 
 
                 }
                 break;
+            case 40 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:244: T__54
+                {
+                mT__54(); 
+
+
+                }
+                break;
+            case 41 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:250: T__55
+                {
+                mT__55(); 
+
+
+                }
+                break;
+            case 42 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:256: T__56
+                {
+                mT__56(); 
+
+
+                }
+                break;
             case 43 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:262: LengTipo
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:262: T__57
+                {
+                mT__57(); 
+
+
+                }
+                break;
+            case 44 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:268: T__58
+                {
+                mT__58(); 
+
+
+                }
+                break;
+            case 45 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:274: T__59
+                {
+                mT__59(); 
+
+
+                }
+                break;
+            case 46 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:280: LengTipo
                 {
                 mLengTipo(); 
 
 
                 }
                 break;
-            case 44 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:271: Fecha
+            case 47 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:289: Fecha
                 {
                 mFecha(); 
 
 
                 }
                 break;
-            case 45 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:277: Hora
+            case 48 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:295: Hora
                 {
                 mHora(); 
 
 
                 }
                 break;
-            case 46 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:282: UbicacionC
+            case 49 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:300: UbicacionC
                 {
                 mUbicacionC(); 
 
 
                 }
                 break;
-            case 47 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:293: Int
+            case 50 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:311: Int
                 {
                 mInt(); 
 
 
                 }
                 break;
-            case 48 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:297: Bool
+            case 51 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:315: Bool
                 {
                 mBool(); 
 
 
                 }
                 break;
-            case 49 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:302: ALIASA
+            case 52 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:320: ALIASA
                 {
                 mALIASA(); 
 
 
                 }
                 break;
-            case 50 :
-                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:309: String
+            case 53 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:327: Comentarios
+                {
+                mComentarios(); 
+
+
+                }
+                break;
+            case 54 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:339: String
                 {
                 mString(); 
+
+
+                }
+                break;
+            case 55 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:346: NEWLINE
+                {
+                mNEWLINE(); 
+
+
+                }
+                break;
+            case 56 :
+                // /home/jvidalva/Escritorio/practica_compiladoresmd/trunk/src/gramaticadesc/md.g:1:354: WS
+                {
+                mWS(); 
 
 
                 }
@@ -2031,86 +2344,105 @@ public class mdLexer extends Lexer {
     }
 
 
-    protected DFA7 dfa7 = new DFA7(this);
-    static final String DFA7_eotS =
-        "\1\46\1\50\1\52\1\54\5\uffff\1\56\2\uffff\1\60\1\65\2\uffff\1\70"+
-        "\1\uffff\1\74\7\77\4\uffff\4\77\1\116\1\46\2\77\27\uffff\2\77\1"+
-        "\uffff\3\77\1\130\1\132\10\77\1\116\1\uffff\1\46\1\77\1\uffff\1"+
-        "\150\1\uffff\1\77\1\153\2\77\1\uffff\1\156\1\uffff\1\77\1\160\6"+
-        "\77\2\uffff\1\116\1\77\2\uffff\1\171\1\77\1\uffff\1\156\1\173\1"+
-        "\uffff\1\77\1\uffff\1\77\3\156\2\77\1\u0080\2\uffff\1\u0082\1\uffff"+
-        "\1\77\1\u0084\1\u0080\1\77\1\uffff\1\u0086\1\uffff\1\u0087\1\uffff"+
-        "\1\156\2\uffff";
-    static final String DFA7_eofS =
-        "\u0088\uffff";
-    static final String DFA7_minS =
-        "\1\41\1\75\1\43\1\44\5\uffff\1\53\2\uffff\1\56\1\57\2\uffff\1\75"+
-        "\1\45\1\75\7\60\4\uffff\10\60\14\uffff\3\57\10\uffff\2\60\1\uffff"+
-        "\15\60\1\57\1\uffff\1\57\1\60\3\57\4\60\1\uffff\1\60\1\uffff\10"+
-        "\60\2\uffff\2\60\1\57\1\uffff\1\57\1\60\1\uffff\2\60\1\uffff\1\60"+
-        "\1\uffff\7\60\1\57\1\uffff\1\60\1\uffff\4\60\1\uffff\1\57\1\uffff"+
-        "\1\60\1\uffff\1\60\2\uffff";
-    static final String DFA7_maxS =
-        "\1\176\1\75\1\43\1\44\5\uffff\1\53\2\uffff\1\56\1\172\2\uffff\3"+
-        "\75\7\172\4\uffff\5\172\1\71\2\172\14\uffff\3\172\10\uffff\2\172"+
-        "\1\uffff\16\172\1\uffff\1\72\10\172\1\uffff\1\172\1\uffff\10\172"+
-        "\2\uffff\3\172\1\uffff\2\172\1\uffff\2\172\1\uffff\1\172\1\uffff"+
-        "\10\172\1\uffff\1\172\1\uffff\4\172\1\uffff\1\172\1\uffff\1\172"+
-        "\1\uffff\1\172\2\uffff";
-    static final String DFA7_acceptS =
-        "\4\uffff\1\7\1\10\1\11\1\12\1\13\1\uffff\1\16\1\17\2\uffff\1\27"+
-        "\1\30\12\uffff\1\47\1\50\1\51\1\52\10\uffff\1\62\1\2\1\1\1\3\1\4"+
-        "\1\5\1\6\1\15\1\14\1\21\1\20\1\23\3\uffff\1\22\1\56\1\32\1\31\1"+
-        "\33\1\34\1\36\1\35\2\uffff\1\61\16\uffff\1\57\11\uffff\1\42\1\uffff"+
-        "\1\43\10\uffff\1\54\1\55\3\uffff\1\25\2\uffff\1\40\2\uffff\1\53"+
-        "\1\uffff\1\45\10\uffff\1\26\1\uffff\1\41\4\uffff\1\60\1\uffff\1"+
-        "\37\1\uffff\1\46\1\uffff\1\24\1\44";
-    static final String DFA7_specialS =
-        "\u0088\uffff}>";
-    static final String[] DFA7_transitionS = {
-            "\1\1\1\uffff\1\2\1\3\1\4\1\5\1\uffff\1\6\1\7\1\10\1\11\1\12"+
-            "\1\13\1\14\1\15\1\43\11\42\1\16\1\17\1\20\1\21\1\22\2\uffff"+
-            "\32\45\6\uffff\1\45\1\36\1\23\1\24\1\25\1\40\1\45\1\37\1\26"+
-            "\4\45\1\27\1\30\3\45\1\41\1\44\2\45\1\31\3\45\1\32\1\33\1\34"+
-            "\1\35",
-            "\1\47",
-            "\1\51",
-            "\1\53",
+    protected DFA11 dfa11 = new DFA11(this);
+    static final String DFA11_eotS =
+        "\1\47\1\53\1\uffff\1\55\1\57\4\uffff\1\61\1\63\2\uffff\1\65\1\72"+
+        "\2\uffff\1\75\1\uffff\1\101\5\105\1\116\1\105\4\uffff\4\105\1\126"+
+        "\1\47\2\105\33\uffff\3\105\2\uffff\1\105\1\136\1\140\2\105\1\143"+
+        "\1\105\1\uffff\6\105\1\126\1\uffff\1\47\1\105\1\157\1\uffff\1\161"+
+        "\2\105\1\uffff\1\164\1\uffff\1\105\1\166\1\uffff\7\105\2\uffff\1"+
+        "\126\1\105\1\uffff\1\177\1\uffff\1\164\1\u0080\1\uffff\1\105\1\uffff"+
+        "\2\105\3\164\2\105\1\u0086\2\uffff\2\105\1\u0089\1\u0086\1\164\1"+
+        "\uffff\1\u008a\1\164\2\uffff";
+    static final String DFA11_eofS =
+        "\u008b\uffff";
+    static final String DFA11_minS =
+        "\1\11\1\75\1\uffff\1\43\1\44\4\uffff\1\57\1\53\2\uffff\1\56\1\52"+
+        "\2\uffff\1\75\1\45\1\75\7\11\4\uffff\4\11\2\60\2\11\21\uffff\2\57"+
+        "\10\uffff\3\11\2\uffff\7\11\1\uffff\6\11\1\57\1\uffff\1\57\1\11"+
+        "\2\57\3\11\1\uffff\1\11\1\uffff\2\11\1\uffff\7\11\2\uffff\1\60\1"+
+        "\11\1\uffff\1\57\1\uffff\2\11\1\uffff\1\11\1\uffff\10\11\2\uffff"+
+        "\5\11\1\uffff\2\11\2\uffff";
+    static final String DFA11_maxS =
+        "\1\176\1\75\1\uffff\1\43\1\44\4\uffff\1\57\1\53\2\uffff\1\56\1\172"+
+        "\2\uffff\3\75\7\172\4\uffff\5\172\1\71\2\172\21\uffff\2\172\10\uffff"+
+        "\3\172\2\uffff\7\172\1\uffff\7\172\1\uffff\1\72\6\172\1\uffff\1"+
+        "\172\1\uffff\2\172\1\uffff\7\172\2\uffff\2\172\1\uffff\1\172\1\uffff"+
+        "\2\172\1\uffff\1\172\1\uffff\10\172\2\uffff\5\172\1\uffff\2\172"+
+        "\2\uffff";
+    static final String DFA11_acceptS =
+        "\2\uffff\1\3\2\uffff\1\10\1\11\1\12\1\13\2\uffff\1\20\1\21\2\uffff"+
+        "\1\31\1\32\12\uffff\1\52\1\53\1\54\1\55\10\uffff\1\66\1\67\1\70"+
+        "\1\2\1\1\1\4\1\5\1\6\1\7\1\15\1\14\1\17\1\16\1\23\1\22\1\25\1\26"+
+        "\2\uffff\1\24\1\61\1\34\1\33\1\35\1\36\1\40\1\37\3\uffff\1\64\1"+
+        "\65\7\uffff\1\47\7\uffff\1\62\7\uffff\1\43\1\uffff\1\44\2\uffff"+
+        "\1\50\7\uffff\1\57\1\60\2\uffff\1\27\1\uffff\1\41\2\uffff\1\56\1"+
+        "\uffff\1\46\10\uffff\1\30\1\42\5\uffff\1\63\2\uffff\1\51\1\45";
+    static final String DFA11_specialS =
+        "\u008b\uffff}>";
+    static final String[] DFA11_transitionS = {
+            "\1\51\1\50\2\uffff\1\50\22\uffff\1\51\1\1\1\2\1\3\1\4\1\5\1"+
+            "\6\1\uffff\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\44\11\43"+
+            "\1\17\1\20\1\21\1\22\1\23\2\uffff\32\46\6\uffff\1\46\1\37\1"+
+            "\42\1\24\1\25\1\41\1\46\1\40\1\26\4\46\1\27\1\30\3\46\1\31\1"+
+            "\45\2\46\1\32\3\46\1\33\1\34\1\35\1\36",
+            "\1\52",
+            "",
+            "\1\54",
+            "\1\56",
+            "",
+            "",
+            "",
+            "",
+            "\1\60",
+            "\1\62",
+            "",
+            "",
+            "\1\64",
+            "\1\66\4\uffff\1\67\21\uffff\32\73\6\uffff\10\73\1\70\5\73\1"+
+            "\71\13\73",
+            "",
+            "",
+            "\1\74",
+            "\1\76\27\uffff\1\77",
+            "\1\100",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\1\103\7\104\1\102\21\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\13\104\1\107\16\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\5\104\1\110\7\104\1\111\14\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\16\104\1\112\13\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\24\104\1\113\5\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\22\104\1\114\1\115\6\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\7\104\1\117\22\104",
+            "",
+            "",
+            "",
+            "",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\16\104\1\120\13\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\16\104\1\121\13\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\1\123\7\104\1\122\21\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\13\104\1\124\16\104",
+            "\12\125\7\uffff\32\47\6\uffff\32\47",
+            "\12\127",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\21\104\1\130\10\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
             "",
             "",
             "",
             "",
             "",
-            "\1\55",
-            "",
-            "",
-            "\1\57",
-            "\1\61\21\uffff\32\66\6\uffff\2\66\1\62\5\66\1\63\5\66\1\64"+
-            "\13\66",
-            "",
-            "",
-            "\1\67",
-            "\1\71\27\uffff\1\72",
-            "\1\73",
-            "\12\76\7\uffff\32\76\6\uffff\13\76\1\75\16\76",
-            "\12\76\7\uffff\32\76\6\uffff\1\101\7\76\1\100\21\76",
-            "\12\76\7\uffff\32\76\6\uffff\13\76\1\102\16\76",
-            "\12\76\7\uffff\32\76\6\uffff\5\76\1\103\7\76\1\104\14\76",
-            "\12\76\7\uffff\32\76\6\uffff\16\76\1\105\13\76",
-            "\12\76\7\uffff\32\76\6\uffff\24\76\1\106\5\76",
-            "\12\76\7\uffff\32\76\6\uffff\7\76\1\107\22\76",
-            "",
-            "",
-            "",
-            "",
-            "\12\76\7\uffff\32\76\6\uffff\16\76\1\110\13\76",
-            "\12\76\7\uffff\32\76\6\uffff\16\76\1\111\13\76",
-            "\12\76\7\uffff\32\76\6\uffff\1\113\7\76\1\112\21\76",
-            "\12\76\7\uffff\32\76\6\uffff\23\76\1\114\6\76",
-            "\12\115\7\uffff\32\46\6\uffff\32\46",
-            "\12\117",
-            "\12\76\7\uffff\32\76\6\uffff\21\76\1\120\10\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
             "",
             "",
             "",
@@ -2123,9 +2455,8 @@ public class mdLexer extends Lexer {
             "",
             "",
             "",
-            "\13\66\7\uffff\32\66\6\uffff\13\66\1\121\16\66",
-            "\13\66\7\uffff\32\66\6\uffff\15\66\1\122\14\66",
-            "\13\66\7\uffff\32\66\6\uffff\24\66\1\123\5\66",
+            "\13\73\7\uffff\32\73\6\uffff\15\73\1\131\14\73",
+            "\13\73\7\uffff\32\73\6\uffff\24\73\1\132\5\73",
             "",
             "",
             "",
@@ -2134,114 +2465,161 @@ public class mdLexer extends Lexer {
             "",
             "",
             "",
-            "\12\76\7\uffff\32\76\6\uffff\1\124\31\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "",
-            "\12\76\7\uffff\32\76\6\uffff\21\76\1\125\10\76",
-            "\12\76\7\uffff\32\76\6\uffff\23\76\1\126\6\76",
-            "\12\76\7\uffff\32\76\6\uffff\22\76\1\127\7\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\23\76\1\131\6\76",
-            "\12\76\7\uffff\32\76\6\uffff\14\76\1\133\15\76",
-            "\12\76\7\uffff\32\76\6\uffff\23\76\1\134\6\76",
-            "\12\76\7\uffff\32\76\6\uffff\10\76\1\135\21\76",
-            "\12\76\7\uffff\32\76\6\uffff\16\76\1\136\13\76",
-            "\12\76\7\uffff\32\76\6\uffff\24\76\1\137\5\76",
-            "\12\76\7\uffff\32\76\6\uffff\13\76\1\140\16\76",
-            "\12\76\7\uffff\32\76\6\uffff\13\76\1\141\16\76",
-            "\12\76\7\uffff\32\76\6\uffff\21\76\1\142\10\76",
-            "\1\143\12\145\1\144\6\uffff\32\46\6\uffff\32\46",
-            "",
-            "\1\143\12\uffff\1\144",
-            "\12\76\7\uffff\32\76\6\uffff\24\76\1\146\5\76",
-            "\13\66\7\uffff\32\66\6\uffff\1\147\31\66",
-            "\13\66\7\uffff\32\66\6\uffff\32\66",
-            "\13\66\7\uffff\32\66\6\uffff\23\66\1\151\6\66",
-            "\12\76\7\uffff\32\76\6\uffff\22\76\1\152\7\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\4\76\1\154\25\76",
-            "\12\76\7\uffff\32\76\6\uffff\4\76\1\155\25\76",
-            "",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "",
-            "\12\76\7\uffff\32\76\6\uffff\1\76\1\157\30\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\13\76\1\161\16\76",
-            "\12\76\7\uffff\32\76\6\uffff\13\76\1\162\16\76",
-            "\12\76\7\uffff\32\76\6\uffff\21\76\1\163\10\76",
-            "\12\76\7\uffff\32\76\6\uffff\4\76\1\164\25\76",
-            "\12\76\7\uffff\32\76\6\uffff\22\76\1\165\7\76",
-            "\12\76\7\uffff\32\76\6\uffff\10\76\1\166\21\76",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\21\104\1\133\10\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\23\104\1\134\6\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
             "",
             "",
-            "\12\145\7\uffff\32\46\6\uffff\32\46",
-            "\12\76\7\uffff\32\76\6\uffff\4\76\1\167\25\76",
-            "\13\66\7\uffff\32\66\6\uffff\22\66\1\170\7\66",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\22\104\1\135\7\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\23\104\1\137\6\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\14\104\1\141\15\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\23\104\1\142\6\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\21\104\1\144\10\104",
             "",
-            "\13\66\7\uffff\32\66\6\uffff\32\66",
-            "\12\76\7\uffff\32\76\6\uffff\22\76\1\172\7\76",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\10\104\1\145\21\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\16\104\1\146\13\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\24\104\1\147\5\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\13\104\1\150\16\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\13\104\1\151\16\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\1\152\31\104",
+            "\1\153\12\155\1\154\6\uffff\32\47\6\uffff\32\47",
             "",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
+            "\1\153\12\uffff\1\154",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\24\104\1\156\5\104",
+            "\13\73\7\uffff\32\73\6\uffff\32\73",
+            "\13\73\7\uffff\32\73\6\uffff\23\73\1\160\6\73",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\4\104\1\162\25\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\4\104\1\163\25\104",
             "",
-            "\12\76\7\uffff\32\76\6\uffff\21\76\1\174\10\76",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
             "",
-            "\12\76\7\uffff\32\76\6\uffff\4\76\1\175\25\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\4\76\1\176\25\76",
-            "\12\76\7\uffff\32\76\6\uffff\15\76\1\177\14\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\13\66\7\uffff\32\66\6\uffff\22\66\1\u0081\7\66",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\1\104\1\165\30\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
             "",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\10\104\1\167\21\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\13\104\1\170\16\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\13\104\1\171\16\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\21\104\1\172\10\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\4\104\1\173\25\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\22\104\1\174\7\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\22\104\1\175\7\104",
             "",
-            "\12\76\7\uffff\32\76\6\uffff\4\76\1\u0083\25\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
-            "\12\76\7\uffff\32\76\6\uffff\6\76\1\u0085\23\76",
             "",
-            "\13\66\7\uffff\32\66\6\uffff\32\66",
+            "\12\155\7\uffff\32\47\6\uffff\32\47",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\4\104\1\176\25\104",
             "",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
+            "\13\73\7\uffff\32\73\6\uffff\32\73",
             "",
-            "\12\76\7\uffff\32\76\6\uffff\32\76",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\21\104\1\u0081\10\104",
+            "",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\15\104\1\u0082\14\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\4\104\1\u0083\25\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\4\104\1\u0084\25\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\22\104\1\u0085\7\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "",
+            "",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\4\104\1\u0087\25\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\6\104\1\u0088\23\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
+            "\1\106\26\uffff\1\106\17\uffff\12\104\7\uffff\32\104\6\uffff"+
+            "\32\104",
             "",
             ""
     };
 
-    static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);
-    static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);
-    static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);
-    static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);
-    static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);
-    static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);
-    static final short[][] DFA7_transition;
+    static final short[] DFA11_eot = DFA.unpackEncodedString(DFA11_eotS);
+    static final short[] DFA11_eof = DFA.unpackEncodedString(DFA11_eofS);
+    static final char[] DFA11_min = DFA.unpackEncodedStringToUnsignedChars(DFA11_minS);
+    static final char[] DFA11_max = DFA.unpackEncodedStringToUnsignedChars(DFA11_maxS);
+    static final short[] DFA11_accept = DFA.unpackEncodedString(DFA11_acceptS);
+    static final short[] DFA11_special = DFA.unpackEncodedString(DFA11_specialS);
+    static final short[][] DFA11_transition;
 
     static {
-        int numStates = DFA7_transitionS.length;
-        DFA7_transition = new short[numStates][];
+        int numStates = DFA11_transitionS.length;
+        DFA11_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);
+            DFA11_transition[i] = DFA.unpackEncodedString(DFA11_transitionS[i]);
         }
     }
 
-    class DFA7 extends DFA {
+    class DFA11 extends DFA {
 
-        public DFA7(BaseRecognizer recognizer) {
+        public DFA11(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 7;
-            this.eot = DFA7_eot;
-            this.eof = DFA7_eof;
-            this.min = DFA7_min;
-            this.max = DFA7_max;
-            this.accept = DFA7_accept;
-            this.special = DFA7_special;
-            this.transition = DFA7_transition;
+            this.decisionNumber = 11;
+            this.eot = DFA11_eot;
+            this.eof = DFA11_eof;
+            this.min = DFA11_min;
+            this.max = DFA11_max;
+            this.accept = DFA11_accept;
+            this.special = DFA11_special;
+            this.transition = DFA11_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | LengTipo | Fecha | Hora | UbicacionC | Int | Bool | ALIASA | String );";
+            return "1:1: Tokens : ( T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | LengTipo | Fecha | Hora | UbicacionC | Int | Bool | ALIASA | Comentarios | String | NEWLINE | WS );";
         }
     }
  
