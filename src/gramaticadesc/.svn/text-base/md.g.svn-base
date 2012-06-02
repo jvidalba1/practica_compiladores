@@ -1,27 +1,29 @@
-grammar md;
+grammar md;              
 
 prog    		:       md EOF;
-md			:	(listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp)+;
+md			:	( comments | listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+;
 
 //Elementos comunes
 
 LengTipo	:	'int' | 'bool' | 'date' | 'hour' | 'file' | 'class' | 'string';
 
+//Lenguaje de comentarios
+comments		:	'/*' Comentarios '*/';
 
 //Lenguaje de archivos
 
 listLengArchivo		:	'$' ALIASA '.' ALIASA opcionesA '$$';
 opcionesA		:	'{' (ubicacionA | ) (Fecha | ) (Hora | ) '}';
-ubicacionA		:	relativa | absoluta;
-absoluta		:	('/'ALIASA)+;
-relativa		:	'.'('/'ALIASA)+ | '..'('/'ALIASA)*;
+ubicacionA		:	relativa | ('/'ALIASA)+;
+//absoluta		:	('/'ALIASA)+;
+relativa		:	'.'('/'ALIASA)+ | '..'('/'ALIASA)+;
 //relativaP		: 	'.' | '..';
 Fecha			:	(('0'..'9')('0'..'9') '/' ('0'..'9')('0'..'9') '/' ('0'..'9')('0'..'9')('0'..'9')('0'..'9'));
 Hora			:	(('0'..'9')('0'..'9')':'('0'..'9')('0'..'9')':'('0'..'9')('0'..'9'));
 
 //Lenguaje de clases
 
-listLengClases		:	'class' ALIASA (ALIASA)+ propiedad '/class';
+listLengClases		:	'%' ALIASA '"' Comentarios '"' propiedad '%%';
 //DescripcionClases	:	(('a'..'z') | ('A'..'Z') | ('0'..'9'))+;
 propiedad		:	(tripleta)+;
 tripleta		:	LengTipo ':' ALIASA '~' expresion ',';
@@ -49,7 +51,7 @@ relacion		:	adicion (relacionP | );
 relacionP		:	'<' adicion (relacionP | )'<=' adicion (relacionP | )'>' adicion (relacionP | )'>=' adicion (relacionP | )
 				'==' adicion (relacionP | )'!=' adicion (relacionP | );
 adicion			:	termino (adicionP | );
-adicionP		:	'+' termino (adicionP | ) '-' termino (adicionP | );
+adicionP		:	'+' termino (adicionP | ) | '-' termino (adicionP | );
 termino			:	negacion (terminoP | );
 terminoP		:	'*' negacion (terminoP | ) | '//' negacion (terminoP | );
 negacion		:	factor | '!'factor;
@@ -62,7 +64,8 @@ literal			:	Int | Bool | Fecha | Hora | file | listLengClases | String;
 Int			:	('1'..'9')('0'..'9')*;
 Bool			:	'true' | 'false';
 ALIASA			:	(('a'..'z') | ('A'..'Z'))(('a'..'z') | ('A'..'Z') | ('0'..'9'))*;
-file			:	relativa | absoluta;
+Comentarios		:	(('a'..'z') | ('A'..'Z')) (('a'..'z') | ('A'..'Z') | ('0'..'9') | (' '|'\t'))* ;
+file			:	ubicacionA;
 String			:	(('a'..'z')|('A'..'Z')|('0'..'9'))*;
 z			:	listVariables listInstrucciones | ;
 listVariables		:	(lengVar)+;
@@ -78,5 +81,7 @@ asignacion 		:	ALIASA '~' expresion ';';
 
 
 //ALIASE		: 	(('a'..'z') | ('A'..'Z') | ('0'..'9'))*;
+NEWLINE         :       '\r'? '\n'+{skip();} ;
 
+WS              :       (' '|'\t')+ {skip();} ;
 

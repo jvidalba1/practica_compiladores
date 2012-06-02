@@ -10,28 +10,19 @@ public class mdMain {
         System.err.println("Uso: java MainExprAntrl expr");
         System.exit(1);
     }
-
-    
     public static void main(String[] args) 
     {
-        
-       
         if (args.length != 1) 
         {
             usage();
         }       
-        
-        
-    
-
         try 
         {          
-
             ANTLRFileStream input=new ANTLRFileStream(args[0]);
             mdLexer lexer = new mdLexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             mdParser parser = new mdParser(tokens);
-            mdParser.prog_return r = parser.prog();
+            parser.prog();
 
             System.out.println("Expresión válida: " + args[0]);
 

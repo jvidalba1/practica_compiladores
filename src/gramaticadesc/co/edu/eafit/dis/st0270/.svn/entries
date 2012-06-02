@@ -1,14 +1,14 @@
 10
 
 dir
-22
+24
 https://subversion.assembla.com/svn/practica_compiladoresmd/trunk/src/gramaticadesc/co/edu/eafit/dis/st0270
 https://subversion.assembla.com/svn/practica_compiladoresmd
 
 
 
-2012-05-29T16:01:19.488927Z
-22
+2012-05-29T22:00:55.015352Z
+23
 jvidalba
 
 
@@ -26,27 +26,10 @@ jvidalba
 
 b5f904f0-183f-4063-a7bd-53cee30e8ecd
 
-practica_compiladoresmd
+md
 dir
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-deleted
+add
 
