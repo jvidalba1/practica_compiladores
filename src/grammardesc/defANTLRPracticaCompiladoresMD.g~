@@ -1,0 +1,110 @@
+grammar defANTLRPracticaCompiladoresMD;
+@header {
+	package co.edu.eafit.dis.st0270.PracticaCompiladoresMD.parser;
+}              
+
+@lexer::header{
+	package co.edu.eafit.dis.st0270.PracticaCompiladoresMD.parser;
+}
+
+@members 
+{
+    protected Object recoverFromMismatchedToken(IntStream input, int ttype, BitSet follow)
+    throws RecognitionException
+    {
+        throw new MismatchedTokenException(ttype, input);
+    }
+
+}        
+@rulecatch  
+{
+    catch (RecognitionException e) 
+        {
+            throw e;
+        }
+}
+
+prog    		:       defANTLRPracticaCompiladoresMD EOF;
+defANTLRPracticaCompiladoresMD		:	( listLengArchivo | listLengClases | listLengComandos | listLengFns | listLengApp )+;
+
+//Elementos comunes
+
+
+
+
+//Lenguaje de archivos
+
+listLengArchivo		:	'$' ALIASA '.' ALIASA opcionesA '$$';
+opcionesA		:	'^-' (ubicacionA | ) (Fecha | ) (Hora | ) '-^';
+ubicacionA		:	relativa | ('/'ALIASA)+;
+//absoluta		:	('/'ALIASA)+;
+relativa		:	'.'('/'ALIASA)+ | '..'('/'ALIASA)+;
+//relativaP		: 	'.' | '..';
+Fecha			:	(('0'..'9')('0'..'9') '/' ('0'..'9')('0'..'9') '/' ('0'..'9')('0'..'9')('0'..'9')('0'..'9'));
+Hora			:	(('0'..'9')('0'..'9')':'('0'..'9')('0'..'9')':'('0'..'9')('0'..'9'));
+
+//Lenguaje de clases
+
+listLengClases		:	'%' ALIASA '°' ALIASA '°' propiedad '%%';
+//DescripcionClases	:	(('a'..'z') | ('A'..'Z') | ('0'..'9'))+;
+propiedad		:	(tripleta)+;
+tripleta		:	LengTipo ':' ALIASA '~' expresion ',';
+
+//Lenguaje de comandos
+
+listLengComandos	:	'¿' 'nombre' '~' ALIASA '~' UbicacionC '?';
+UbicacionC		:	('/'ALIASA)+'/';
+
+//Lenguaje de aplicación 
+
+listLengApp		:	'#' Int /*Comandos*/ ALIASA '<<' argumentoIN '<<' '>>' argumentoOUT '>>' opcionesApp '°' descripcionApp '°' '##';
+argumentoIN		:	archivo | /*Clase*/ ALIASA | archivo argumentoIN | /*Clase*/ ALIASA argumentoIN;
+archivo			: 	ALIASA '.' ALIASA;
+argumentoOUT		:	archivo | /*Clase*/ ALIASA; 
+opcionesApp		:	'-' ALIASA opcionesApp | '-' ALIASA;
+descripcionApp		:	ALIASA | ;
+
+//Lenguaje de expresiones sin recursividad por la izquierda
+expresion		:	conjuncion (expresionP | );
+expresionP		:	'||' conjuncion (expresionP | );
+conjuncion		:	relacion (conjuncionP | );
+conjuncionP		:	'&&' relacion (conjuncionP | );
+relacion		:	adicion (relacionP | );
+relacionP		:	'<' adicion (relacionP | ) | '<=' adicion (relacionP | ) | '>' adicion (relacionP | ) | '>=' adicion (relacionP | )
+				| '==' adicion (relacionP | ) | '!=' adicion (relacionP | );
+adicion			:	termino (adicionP | );
+adicionP		:	'+' termino (adicionP | ) | '-' termino (adicionP | );
+termino			:	negacion (terminoP | );
+terminoP		:	'*' negacion (terminoP | ) | '//' negacion (terminoP | );
+negacion		:	factor | '!'factor;
+factor			:	ALIASA | tripleta | literal | '(' expresion  ')';
+
+//Lenguaje de funciones
+
+listLengFns		:	'%=' ALIASA '(' ALIASA (','ALIASA)* ')' '{' z '}' '=%';
+literal			:	Int | Bool | Fecha | Hora | ubicacionA | listLengClases | String;
+Int			:	('1'..'9')('0'..'9')*;
+Bool			:	'true' | 'false';
+LengTipo		:	'int' | 'bool' | 'date' | 'hour' | 'file' | 'class' | 'string';
+ALIASA			:	(('a'..'z') | ('A'..'Z'))(('a'..'z') | ('A'..'Z') | ('0'..'9'))*;
+Comentarios		:	(('a'..'z') | ('A'..'Z')) (('a'..'z') | ('A'..'Z') | ('0'..'9') | (' '|'\t'))* ;
+String			:	(('a'..'z')|('A'..'Z')|('0'..'9'))*;
+z			:	listVariables listInstrucciones | ;
+listVariables		:	(lengVar)+;
+lengVar			:	'@' ALIASA ';';
+listInstrucciones 	:	(instrucciones)+ | ;
+instrucciones		: 	asignacion | ciclo | condicion;
+condicion		:	condicionP ('else' '{' listInstrucciones '}' | );
+condicionP		:	'if' '(' expresion ')' '{' listInstrucciones '}';
+ciclo			:	'while' '(' expresion ')' '{' listInstrucciones '}';
+asignacion 		:	ALIASA '~' expresion ';';
+
+
+//Id			:	(('0'..'9'))+;
+
+
+//ALIASE		: 	(('a'..'z') | ('A'..'Z') | ('0'..'9'))*;
+NEWLINE         :       '\r'? '\n'+{skip();} ;
+
+WS              :       (' '|'\t')+ {skip();} ;
+

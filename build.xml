@@ -1,41 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="ejemplo" default="Compile" basedir=".">
-  
-	<!-- Cuarto -->
-  <target name="run" depends="Compile">
-      <java classname="mdMain"> 
-            <classpath>
-              <pathelement path="${java.class.path}"/>
-              <path location="bin"/>
-            </classpath>
-            <arg value="examples/test.txt"/>
-          </java>
-        </target>  
+<project name="PracticaCompiladoresMD" default="Compile" basedir=".">
+        
+  <property name="src" location="src"/>
+  <property name="build" location="bin"/>
+  <property name="pro" value="co/edu/eafit/dis/st0270/PracticaCompiladoresMD"/>
+  <property name="JfDir" value="${src}/lexer/jflex"/>
 
-	<!-- Segundo -->
+  <property name="JFLEX" value="src/lexer/jflex/DefJflexPracticaCompiladoresMD.jflex"/>
+  <property name="PARSER" value="src/grammardesc/${pro}/parser"/>
+  <property name="ANTLR" value="src/grammardesc/defANTLRPracticaCompiladoresMD.g"/>
+  <property name="MAINLL" value="src.main.MainPracticaCompiladoresMDLL1Parser"/>
+  <property name="TEST" value="examples/test.txt"/>
+  <property name="CUP" value="src/grammardesc/DefCupPracticaCompiladoresMD.cup"/>
+  <property name="CUP_PRO" value="grammardesc.co.edu.eafit.dis.st0270.PracticaCompiladoresMD.parser"/>
+  <property name="CUP_NAME" value="DefCupPracticaCompiladoresMD"/>
+  <property name="CUP_SYM_NAME" value="CupSymbol"/>
+  <property name="MAINLR" value="src.main.MainPracticaCompiladoresMDLR1Parser"/>
+  
+  <property environment="env"/>
+  
+  <path id="classpath">
+    <fileset dir="${env.HOME}/classes" includes="**/*.jar"/>        
+  </path>
+  
+  
+  <taskdef classname="JFlex.anttask.JFlexTask" name="Jflex" classpathref="classpath"/>
+  <taskdef name="cup" classname="java_cup.anttask.CUPTask" classpathref="classpath"/>
+  
+<target name="init">
+    <mkdir dir="${build}"/>        
+  </target>
+
+  
+  <target name="Compile" depends="init, jflex-gen, antlr-gen, cup-gen">
+    <javac srcdir="${src}" destdir="${build}">
+        <classpath>
+            <path refid="classpath"/>
+            <path location="${src}"/>
+        </classpath> 
+    </javac>               
+  </target>
+
+
+  <target name="jflex-gen">
+    <Jflex file="${JFLEX}" destdir="${src}"/>  
+  </target>
+
+
   <target name="antlr-gen">
     <antlr:ant-antlr3 xmlns:antlr="antlib:org/apache/tools/ant/antlr"
                       verbose="true"
-                      outputdirectory="src"
-                      target="src/gramaticadesc/md.g"/>
+                      outputdirectory="${PARSER}"
+                      target="${ANTLR}"/>
   </target>
 
-	<!-- Tercero -->
-  <target name="Compile" depends="init,antlr-gen">
-    <javac srcdir="src/gramaticadesc" destdir="bin"/>     
-  </target>
   
-	<!-- Primero -->
-  <target name="init">
-    <mkdir dir="bin"/>        
+  <target name="run-antlr" depends="Compile">
+    <java classname="${MAINLL}" >
+        <classpath>
+            <path refid="classpath"/>
+            <path location="${build}"/>
+        </classpath>
+        <arg value="${TEST}"/>
+    </java>
   </target>
 
-	<!-- Borrar lo hecho -->
-  <target name="clean">        
-      <delete dir="bin"/>
-      <delete file="src/gramaticadesc/mdParser.java"/>
-      <delete file="src/gramaticadesc/mdLexer.java"/>
-      <delete file="src/gramaticadesc/md.tokens"/>
-  </target> 
+
+
+   <target name="cup-gen" depends="init">
+    <cup srcfile="${CUP}"
+         destdir="${PARSER}"
+         package="${CUP_PRO}"
+         parser="${CUP_NAME}"
+         symbols="${CUP_SYM_NAME}"
+         nosummary="true"
+         time="true"
+         />    
+  </target>
+
+
+  <target name="run-cup" depends="Compile">
+    <java classname="${MAINLR}" >
+        <classpath>
+            <path refid="classpath"/>
+            <path location="${build}"/>
+        </classpath>
+        <arg value="${TEST}"/>
+    </java>
+  </target>
+
+
  
+
+  <target name="clean">        
+    <delete dir="${build}"/>
+    <delete file="${PARSER}/${CUP_NAME}.java"/>
+    <delete file="${PARSER}/${CUP_SYM_NAME}.java"/>
+    
+  </target> 
+  
+
 </project>

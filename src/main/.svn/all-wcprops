@@ -1,23 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
 V 55
-/svn/practica_compiladoresmd/!svn/ver/23/trunk/src/main
+/svn/practica_compiladoresmd/!svn/ver/29/trunk/src/main
 END
-MainmdLR1Parser.java
+MainPracticaCompiladoresMDLL1Parser.java
 K 25
 svn:wc:ra_dav:version-url
-V 76
-/svn/practica_compiladoresmd/!svn/ver/23/trunk/src/main/MainmdLR1Parser.java
+V 96
+/svn/practica_compiladoresmd/!svn/ver/32/trunk/src/main/MainPracticaCompiladoresMDLL1Parser.java
 END
-MainmdLexer.java
+MainPracticaCompiladoresMDLR1Parser.java
 K 25
 svn:wc:ra_dav:version-url
-V 72
-/svn/practica_compiladoresmd/!svn/ver/23/trunk/src/main/MainmdLexer.java
-END
-MainmdLL1Parser.java
-K 25
-svn:wc:ra_dav:version-url
-V 76
-/svn/practica_compiladoresmd/!svn/ver/23/trunk/src/main/MainmdLL1Parser.java
+V 96
+/svn/practica_compiladoresmd/!svn/ver/32/trunk/src/main/MainPracticaCompiladoresMDLR1Parser.java
 END

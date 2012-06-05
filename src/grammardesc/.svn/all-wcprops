@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/practica_compiladoresmd/!svn/ver/31/trunk/src/grammardesc
+END
+DefCupPracticaCompiladoresMD.cup
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/practica_compiladoresmd/!svn/ver/32/trunk/src/grammardesc/DefCupPracticaCompiladoresMD.cup
+END
+defANTLRPracticaCompiladoresMD.g
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/practica_compiladoresmd/!svn/ver/32/trunk/src/grammardesc/defANTLRPracticaCompiladoresMD.g
+END

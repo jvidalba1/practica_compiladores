@@ -1,0 +1,116 @@
+package grammardesc.co.edu.eafit.dis.st0270.PracticaCompiladoresMD.lexer;
+
+
+import java_cup.runtime.Symbol;
+import java_cup.runtime.Scanner;
+import grammardesc.co.edu.eafit.dis.st0270.PracticaCompiladoresMD.parser.CupSymbol;
+
+
+
+%%
+
+%class DefJflexPracticaCompiladoresMD
+%unicode
+%line
+%column
+%public
+%cup 
+
+
+DATE = [:digit:]{2}"/"[:digit:]{2}"/"[:digit:]{4}
+HORA = [:digit:]{2} ":" [:digit:]{2} ":" [:digit:]{2}
+
+BOOL = "true" | "false"
+OPCION = "-"([:jletterdigit:]|"_")+
+ID = "id" ([:jletterdigit:]|"_")*
+EXT = "."([:jletterdigit:]|"_")*
+INT = [:digit:]+
+
+
+UBICACIONABS = ("/"([:jletter:]([:jletterdigit:])*))+
+UBICACIONREL = ("."("/"([:jletter:]([:jletterdigit:])*))+) | (".."("/"([:jletter:]([:jletterdigit:])*))+)
+UBICACIONC = ("/"([:jletter:]([:jletterdigit:])*))+"/"
+FILE = ALIASA "." ALIASA
+COMENTARIO = (([:jletter:]([:jletterdigit:] | ([ \t\n]))*))
+
+LineTerminator = \r|\n|\r\n
+InputCharacter = [^\r\n]
+WhiteSpace     = {LineTerminator} | [ \t\n]
+
+ALIASA = [:jletter:]([:jletterdigit:])*
+TIPO = "int" | "bool" | "file" | "class" | "date" | "hour" | "string"
+
+%%
+
+/* ============================== Lenguaje de expresiones ===========================*/
+
+"||"							{ System.out.println("||"); return new Symbol(CupSymbol.OR); }
+"&&"                  			{ System.out.println("&&"); return new Symbol(CupSymbol.AND); }
+"<="                  			{ System.out.println("<="); return new Symbol(CupSymbol.MENORQUE); }
+"<"                  			{ System.out.println("<"); return new Symbol(CupSymbol.MENOR); }
+">="                  			{ System.out.println(">="); return new Symbol(CupSymbol.MAYORQUE); }
+">"                  			{ System.out.println(">"); return new Symbol(CupSymbol.MAYOR); }
+"=="                  			{ System.out.println("=="); return new Symbol(CupSymbol.QUAL); }
+"!="                  			{ System.out.println("!="); return new Symbol(CupSymbol.DIFERENTE); }
+"!"                  			{ System.out.println("!"); return new Symbol(CupSymbol.NEGACION); }
+"("                  			{ System.out.println("("); return new Symbol(CupSymbol.LPAREN); }
+")"                  			{ System.out.println(")"); return new Symbol(CupSymbol.RPAREN); }
+"+"                  			{ System.out.println("+"); return new Symbol(CupSymbol.PLUS); }
+"-"                 			{ System.out.println("-"); return new Symbol(CupSymbol.MINUS); }
+"*"                  			{ System.out.println("*"); return new Symbol(CupSymbol.MUL); }
+"//"                 			{ System.out.println("//"); return new Symbol(CupSymbol.DIVIDE); }
+
+/*==================================================================================*/
+
+"nombre"                  		{ System.out.println("N"); return new Symbol(CupSymbol.NOMBREC); }
+"."                  			{ System.out.println("."); return new Symbol(CupSymbol.POINT); }
+"$$"                  			{ System.out.println("$$"); return new Symbol(CupSymbol.RFILE); }
+"$"                  			{ System.out.println("$"); return new Symbol(CupSymbol.LFILE); }
+"^-"                  			{ System.out.println("^-"); return new Symbol(CupSymbol.LOPCIONESFILE); }
+"-^"                  			{ System.out.println("-^"); return new Symbol(CupSymbol.ROPCIONESFILE); }
+"%%"                  			{ System.out.println("%%");return new Symbol(CupSymbol.RCLASS); }
+"%"                  			{ System.out.println("%");return new Symbol(CupSymbol.LCLASS); }
+"°"                  			{ System.out.println("°");return new Symbol(CupSymbol.DESCRIPCION); }
+":"                  			{ System.out.println(":");return new Symbol(CupSymbol.DOSPUNTOS); }
+"~"                  			{ System.out.println("~");return new Symbol(CupSymbol.IGUAL); }
+","                  			{ System.out.println(",");return new Symbol(CupSymbol.SEPARADOR); }
+"¿"                  			{ System.out.println("¿");return new Symbol(CupSymbol.LCOMMAND); }
+"?"                  			{ System.out.println("?");return new Symbol(CupSymbol.RCOMMAND); }
+"##"                  			{ System.out.println("##");return new Symbol(CupSymbol.RAPP); }
+"#"                  			{ System.out.println("#");return new Symbol(CupSymbol.LAPP); }
+"<<"                  			{ System.out.println("<<");return new Symbol(CupSymbol.ARGIN); }
+">>"                  			{ System.out.println(">>");return new Symbol(CupSymbol.ARGOUT); }
+"%="                  			{ System.out.println("%=");return new Symbol(CupSymbol.LFNS); }
+"=%"                  			{ System.out.println("=%");return new Symbol(CupSymbol.RFNS); }
+"{"                  			{ System.out.println("{");return new Symbol(CupSymbol.LINSTRUCCIONES); }
+"}"                  			{ System.out.println("}");return new Symbol(CupSymbol.RINSTRUCCIONES); }
+";"                  			{ System.out.println(";");return new Symbol(CupSymbol.PUNTOYCOMA); }
+"else"                  		{ System.out.println("else");return new Symbol(CupSymbol.ELSE); }
+"if"                  			{ System.out.println("if");return new Symbol(CupSymbol.IF); }
+"while"                  		{ System.out.println("while");return new Symbol(CupSymbol.WHILE); }
+"@" 	                 		{ System.out.println("@");return new Symbol(CupSymbol.ARROBA); }
+
+{TIPO}                          {System.out.println("TIPO");return new Symbol(CupSymbol.TIPO);}
+{ID}                            {System.out.println("ID");return new Symbol(CupSymbol.ID);}
+{BOOL}                          {System.out.println("BOOL");return new Symbol(CupSymbol.BOOL);}
+{DATE}                          {System.out.println("DATE");return new Symbol(CupSymbol.FECHA);}
+{HORA}                          {System.out.println("HORA");return new Symbol(CupSymbol.HORA);}
+{OPCION}                        {System.out.println("OPCION");return new Symbol(CupSymbol.OPCION);}
+{INT}                           {System.out.println("INT");return new Symbol(CupSymbol.INT);}
+{UBICACIONABS}					{System.out.println("ABS");return new Symbol(CupSymbol.UBICACIONABS);}
+{UBICACIONREL}					{System.out.println("REL");return new Symbol(CupSymbol.UBICACIONREL);}
+{UBICACIONC}					{System.out.println("UBICACIONC");return new Symbol(CupSymbol.UBICACIONC);}
+{FILE}							{System.out.println("FILE");return new Symbol(CupSymbol.FILE);}
+{ALIASA}						{System.out.println("ALIAS");return new Symbol(CupSymbol.ALIASA);}
+
+{WhiteSpace}         { /* Ignore */ }
+
+
+
+.|\n                 { throw new Error("Illegal character <" + 
+                                       yytext() + "> at line: " + 
+                                       (yyline + 1) + " column: " + 
+                                       yycolumn); 
+                     }
+
+<<EOF>>              { return null; }

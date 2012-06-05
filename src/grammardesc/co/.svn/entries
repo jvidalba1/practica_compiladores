@@ -1,14 +1,14 @@
 10
 
 dir
-28
-https://subversion.assembla.com/svn/practica_compiladoresmd/trunk/src/lexer
+32
+https://subversion.assembla.com/svn/practica_compiladoresmd/trunk/src/grammardesc/co
 https://subversion.assembla.com/svn/practica_compiladoresmd
 
 
 
-2012-06-04T21:38:24.224394Z
-28
+2012-06-05T05:04:09.484953Z
+32
 jvidalba
 
 
@@ -26,6 +26,6 @@ jvidalba
 
 b5f904f0-183f-4063-a7bd-53cee30e8ecd
 
-jflex
+edu
 dir
 

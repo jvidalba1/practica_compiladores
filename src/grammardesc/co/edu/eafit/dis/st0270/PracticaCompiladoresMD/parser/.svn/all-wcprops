@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/practica_compiladoresmd/!svn/ver/32/trunk/src/grammardesc/co/edu/eafit/dis/st0270/PracticaCompiladoresMD/parser
+END
+defANTLRPracticaCompiladoresMDParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/practica_compiladoresmd/!svn/ver/32/trunk/src/grammardesc/co/edu/eafit/dis/st0270/PracticaCompiladoresMD/parser/defANTLRPracticaCompiladoresMDParser.java
+END
+defANTLRPracticaCompiladoresMDLexer.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/practica_compiladoresmd/!svn/ver/32/trunk/src/grammardesc/co/edu/eafit/dis/st0270/PracticaCompiladoresMD/parser/defANTLRPracticaCompiladoresMDLexer.java
+END
+defANTLRPracticaCompiladoresMD.tokens
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/practica_compiladoresmd/!svn/ver/32/trunk/src/grammardesc/co/edu/eafit/dis/st0270/PracticaCompiladoresMD/parser/defANTLRPracticaCompiladoresMD.tokens
+END

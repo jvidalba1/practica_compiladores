@@ -1,10 +1,20 @@
-/* esto es un leng de archivo */
-$ mateo.m{ 33/33/3333 22:22:22 } $$
-/* esto es un leng de clase */
-% fiu" descripcion " int: tri1~ 2*3 , int: tri2~ 2*3 , %%
-/* esto es un leng de comandos */
-+ nombre~ ruby~ /home/mateo/ ++
-/* esto es un leng de app */
-#123 rubyin<< mateo.c<< >> mateo.mto>> -mto" convertir a mto" ##
-/* esto es un leng de funciones */
-%= int fiu( int a , int b) {string oelo; asig1~ 2*3; while(i<=3){ } if( 3!=j) { }else{ })}=%
+$ mateo.m^- 33/33/3333 22:22:22 -^ $$
+% fiu° descripcion° int: tri1~ 2*3 , int: tri2~ 2*3 , %%
+¿ nombre~ ruby~/home/oelo/ ?
+#123 rubyin<< archivo1.in<< >> archivo2.out>> -mto° convierte° ##
+%= NombreFuncion( var1, var2, var3) { 
+	@mt; 
+	asig1~ 2+3; 
+	while(mt== 2){ 
+		if(a> 3){ 
+			if(b!=a){ 
+				mt~ 0;
+			}else{
+				if(a!=c){ 
+					mt~ a;
+				} 
+			}
+		}
+	}
+}
+=%
