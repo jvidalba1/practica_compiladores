@@ -27,7 +27,7 @@ ________________________________________________________________________________
 
 ###Autores
 
-#### José Mateo Vidal Barrera [@jvidalba1]()
+#### José Mateo Vidal Barrera [@jvidalba1](https://github.com/jvidalba1)
 
 #### Duvan Dario Barrientos Betancur [@duvan]()
 
